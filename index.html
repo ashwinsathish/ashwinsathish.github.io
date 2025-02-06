@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashwin Sathish Kumar - Research Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Add these new styles */
+        body {
+            cursor: default;
+        }
+        
+        /* Keep pointer cursor only for interactive elements */
+        a, button, .nav-link {
+            cursor: pointer;
+        }
+        
+        /* Your existing styles */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A5568;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .section-heading {
+            border-bottom: 2px solid #4A5568;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-semibold text-gray-700">Ashwin Sathish Kumar</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900">About</a>
+                    <a href="#research" class="nav-link text-gray-700 hover:text-gray-900">Research</a>
+                    <a href="#publications" class="nav-link text-gray-700 hover:text-gray-900">Publications</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-24 pb-12 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="w-64 h-64 mx-auto overflow-hidden rounded-full shadow-lg">
+    <img src="images/profile.jpg" alt="Profile" class="w-full h-full object-cover" style="object-position: 60% 30%;">
+</div>
+                </div>
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl font-bold text-gray-800 mb-4">Ashwin Sathish Kumar</h1>
+                    <p class="text-xl text-gray-600 mb-6">Electronics & Instrumentation Engineering | Mathematics</p>
+                    <p class="text-gray-600 mb-6">Birla Institute of Technology & Science, Pilani</p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="mailto:ashwins2003@hotmail.com" class="text-gray-600 hover:text-gray-900">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/ashwinsathish" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ashwins-860442226/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-gray-900">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="section-heading text-3xl font-bold text-gray-800">About Me</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <p class="text-gray-600 leading-relaxed">
+                    I am a dual degree student pursuing Int. MSc. Mathematics and B.E. Electronics & Instrumentation at BITS Pilani. 
+                    My research interests lie at the intersection of wireless communications, signal processing, and applied mathematics. 
+                    Currently, I am working on my Master's thesis titled 'Development and Implementation of a Simulation Concept
+                    for Multi-User RIS-aided Communication' at TU Braunschweig.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-heading text-3xl font-bold text-gray-800">Research Interests</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Wireless Communications -->
+                <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center justify-between h-16">
+                        <h3 class="text-xl font-semibold text-gray-800 pr-4">Wireless Communications</h3>
+                        <i class="fas fa-broadcast-tower text-3xl text-gray-300 group-hover:text-blue-500 transform group-hover:scale-110 transition-all duration-300"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mt-6">Exploring 5G/6G technologies with focus on network virtualization, UAV-aided communications, and optimization of wireless systems for next-generation applications.</p>
+                </div>
+
+                <!-- RIS -->
+                <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center justify-between h-16">
+                        <h3 class="text-xl font-semibold text-gray-800 pr-4">Reconfigurable Intelligent Surfaces</h3>
+                        <i class="fas fa-wave-square text-3xl text-gray-300 group-hover:text-purple-500 transform group-hover:scale-110 transition-all duration-300"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mt-6">Development of beamforming algorithms and phase optimization techniques for RIS-aided wireless networks, with emphasis on spatial awareness and environmental adaptation.</p>
+                </div>
+
+                <!-- Plasmonics -->
+                <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-center justify-between h-16">
+                        <h3 class="text-xl font-semibold text-gray-800 pr-4">Plasmonics</h3>
+                        <i class="fas fa-atom text-3xl text-gray-300 group-hover:text-yellow-500 transform group-hover:scale-110 transition-all duration-300"></i>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mt-6">Design and simulation of surface plasmon resonance sensors using novel materials and metamaterial structures for high-sensitivity biosensing applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="section-heading text-3xl font-bold text-gray-800">Publications</h2>
+            <div class="space-y-6">
+                <!-- First Paper -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">LiDAR-Enabled Spatial Awareness for Beamforming in IRS-Assisted Wireless Communication System</h3>
+                            <p class="text-gray-600 mb-2">IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS), 2024</p>
+                            <p class="text-gray-600">Authors: <span class="font-semibold">Ashwin S.</span>, Sandeep J.</p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <a href="#" class="inline-flex items-center text-gray-400 cursor-not-allowed">
+                                <span>View Paper</span>
+                                <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <span class="text-sm text-gray-500 mt-2">In press</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Paper -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">High-resolution aluminum-based plasmonic devices using metamaterials for cancer cell detection</h3>
+                            <p class="text-gray-600 mb-2">Proc. SPIE PC12990, Metamaterials XIV, 2024</p>
+                            <p class="text-gray-600">Authors: <span class="font-semibold">A. Sathish Kumar</span>, D. Mahanta, P. Arora <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Poster presentation</span></p>
+                        </div>
+                        <a href="https://doi.org/10.1117/12.3021474" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-600 hover:text-blue-800 ml-4">
+                            <span>View Paper</span>
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Third Paper (Poster) -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Numerical Modelling of a Highly Sensitive Surface Plasmon Sensor using Silicon and Platinum Diselenide Stacks</h3>
+                            <p class="text-gray-600 mb-2">International Conference on Advances in Optics and Photonics Instrumentation (OPTOIn), October 2024</p>
+                            <p class="text-gray-600">Authors: Muskan D., <span class="font-semibold">Ashwin S.</span>, Debajani M., Pankaj A. <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Poster presentation</span></p>
+                        </div>
+                        <div class="flex flex-col items-end">
+                            <a href="#" class="inline-flex items-center text-gray-400 cursor-not-allowed">
+                                <span>View Paper</span>
+                                <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                            <span class="text-sm text-gray-500 mt-2">In press</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline Section -->
+    <section id="experience" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="section-heading text-3xl font-bold text-gray-800 mb-12">Experience</h2>
+            
+            <div class="relative wrap overflow-hidden max-w-4xl mx-auto">
+                <!-- Vertical Line -->
+                <div class="absolute h-full w-px bg-gray-200 left-32"></div>
+                
+                <!-- TU Braunschweig -->
+                <div class="mb-12 flex group">
+                    <div class="w-20 h-20 flex-shrink-0 self-center">
+                        <img src="/images/tubs.png" alt="TU Braunschweig" class="w-full h-full object-contain"/>
+                    </div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-gray-400 transition-colors duration-300"></div>
+                    <div class="ml-20">
+                        <span class="text-sm text-gray-500 font-medium mb-2 block">Jan 2025 - Present</span>
+                        <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Visiting Student</h3>
+                            <p class="text-gray-600 mb-3">Technische Universität Braunschweig</p>
+                            <p class="text-gray-600 leading-relaxed">Working on Master's thesis on Multi-User RIS-aided Communication at the Institute for Communications Technology.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Offenburg -->
+                <div class="mb-12 flex group">
+                    <div class="w-20 h-20 flex-shrink-0 self-center">
+                        <img src="/images/hso.jpg" alt="Offenburg University" class="w-full h-full object-contain"/>
+                    </div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-gray-400 transition-colors duration-300"></div>
+                    <div class="ml-20">
+                        <span class="text-sm text-gray-500 font-medium mb-2 block">Jul - Dec 2024</span>
+                        <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Visiting Student</h3>
+                            <p class="text-gray-600 mb-3">Offenburg University of Applied Sciences</p>
+                            <p class="text-gray-600 leading-relaxed">Implemented virtualized 5G network testbed with Open5GS and UERANSIM, developing use-cases for eMBB, URLLC, and mMTC applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate Gurukul -->
+                <div class="mb-12 flex group">
+                    <div class="w-20 h-20 flex-shrink-0 self-center">
+                        <img src="/images/cg.jpeg" alt="Corporate Gurukul" class="w-full h-full object-contain"/>
+                    </div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-gray-400 transition-colors duration-300"></div>
+                    <div class="ml-20">
+                        <span class="text-sm text-gray-500 font-medium mb-2 block">Jun - Sep 2022</span>
+                        <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Teaching Assistant</h3>
+                            <p class="text-gray-600 mb-3">Corporate Gurukul</p>
+                            <p class="text-gray-600 leading-relaxed">Mentored 40 participants for the AI Young Achievers program in collaboration with NTU Singapore and HPE.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSIR -->
+                <div class="flex group">
+                    <div class="w-20 h-20 flex-shrink-0 self-center">
+                        <img src="/images/csir.jpg" alt="CSIR" class="w-full h-full object-contain"/>
+                    </div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-gray-400 transition-colors duration-300"></div>
+                    <div class="ml-20">
+                        <span class="text-sm text-gray-500 font-medium mb-2 block">May - Jul 2022</span>
+                        <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-1">Internship Trainee</h3>
+                            <p class="text-gray-600 mb-3">CSIR - Central Scientific Instruments Organization</p>
+                            <p class="text-gray-600 leading-relaxed">Developed a hyperbolic geometry-based recommendation algorithm at the Centre of Excellence for Intelligent Sensors & Systems.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="section-heading text-3xl font-bold text-gray-800">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+
+                <!-- 5G Virtualization Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">5G Network Virtualization Framework</h3>
+                            <p class="text-gray-600 mb-4">A Python API framework for a virtualized 5G testbed using Open5GS and UERANSIM to implement 3 use-cases comprising eMBB, URLLC, and mMTC applications.</p>
+                            <a href="https://github.com/ashwinsathish/Open5GS-API" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                <span>View on GitHub</span>
+                                <i class="fab fa-github ml-2"></i>
+                            </a>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
+                            <img src="/images/open5gs.png" alt="5G Network virtualization thumbnail" class="max-w-full max-h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aerial IRS Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Aerial IRS-assisted Wireless Communications</h3>
+                            <p class="text-gray-600 mb-4">Implementation of Monte Carlo simulations for aerial IRS-assisted systems with focus on optimization and performance analysis.</p>
+                            <div class="flex space-x-4 items-center">
+                                <a href="https://github.com/ashwinsathish/UAV-IRS-Communications" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>View on GitHub</span>
+                                    <i class="fab fa-github ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0">
+                            <img src="images/uav_ris.png" alt="Project thumbnail" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photonic Crystal Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Photonic Crystal-based Biosensors</h3>
+                            <p class="text-gray-600 mb-4">Designed a photonic crystal-based SPR sensor using silicon and platinum diselenide stacks, achieving sensitivity of 101.1°/RIU.</p>
+                            <div class="flex space-x-4 items-center">
+                                <a href="https://github.com/ashwinsathish/PhC-SPR-Biosensor" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>View on GitHub</span>
+                                    <i class="fab fa-github ml-2"></i>
+                                </a>
+                                <a href="https://doi.org/10.1117/12.3021474" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>Learn More</span>
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
+                            <img src="/images/phc.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IRS with LiDAR Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">LiDAR-enabled IRS Beamforming</h3>
+                            <p class="text-gray-600 mb-4">Implemented a novel spatially-aware beamforming framework integrating LiDAR data with IRS systems, achieving 10.5% improvement in achievable rates.</p>
+                            <div class="flex space-x-4 items-center">
+                                <a href="https://github.com/ashwinsathish/LiDAR-IRS-Beamforming" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>View on GitHub</span>
+                                    <i class="fab fa-github ml-2"></i>
+                                </a>
+                                <a href="[ANTS_CONFERENCE_LINK]" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>Learn More</span>
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
+                            <img src="/images/lidar.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aluminum Plasmonic Sensor Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Aluminum-based Plasmonic Sensor</h3>
+                            <p class="text-gray-600 mb-4">Simulated an Aluminum-based SPR sensor with TiO2 and MoS2 coatings for cancer cell detection, achieving sensitivity of 101.2°/RIU.</p>
+                            <div class="flex space-x-4 items-center">
+                                <a href="https://github.com/ashwinsathish/Metamaterial-SPR-Biosensor" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>View on GitHub</span>
+                                    <i class="fab fa-github ml-2"></i>
+                                </a>
+                                <a href="https://doi.org/10.1117/12.3021474" target="_blank" rel="noopener noreferrer" 
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <span>Learn More</span>
+                                    <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
+                            <img src="/images/metamaterial.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FDTD Modelling Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">FDTD Modelling for Non-destructive Testing</h3>
+                            <p class="text-gray-600 mb-4">Conducted FDTD simulations on 3D concrete-rebar structure, applying staircase approximations and Mur's 2nd order boundary conditions.</p>
+                            <a href="https://github.com/ashwinsathish/FDTD-analysis" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                <span>View on GitHub</span>
+                                <i class="fab fa-github ml-2"></i>
+                            </a>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0">
+                            <img src="/images/fdtd.png" alt="Project thumbnail" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hyperbolic Book Recommender Project -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="flex">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Hyperbolic Book Recommender System</h3>
+                            <p class="text-gray-600 mb-4">Implemented a recommendation algorithm using Poincaré embeddings and graph factorization on the Library of Congress dataset.</p>
+                            <a href="https://github.com/ashwinsathish/Hyperbolic-embeddings" target="_blank" rel="noopener noreferrer" 
+                               class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                <span>View on GitHub</span>
+                                <i class="fab fa-github ml-2"></i>
+                            </a>
+                        </div>
+                        <div class="w-32 h-32 bg-gray-200 flex-shrink-0">
+                            <img src="/images/Hyperbolic_orthogonal_dodecahedral_honeycomb.png" alt="Project thumbnail" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="section-heading text-3xl font-bold text-gray-800">Contact</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-center">
+                    <div class="flex flex-wrap justify-center gap-8">
+                        <a href="mailto:ashwins2003@hotmail.com" class="text-gray-600 hover:text-blue-600 flex items-center">
+                            <i class="fas fa-envelope text-xl mr-2"></i>
+                            <span>ashwins2003@hotmail.com</span>
+                        </a>
+                        <a href="https://github.com/ashwinsathish" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 flex items-center">
+                            <i class="fab fa-github text-xl mr-2"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ashwins-860442226/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-blue-600 flex items-center">
+                            <i class="fab fa-linkedin text-xl mr-2"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <div class="text-gray-600 flex items-center">
+                            <i class="fas fa-map-marker-alt text-xl mr-2"></i>
+                            <span>Chennai, India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>© 2024 Ashwin Sathish Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
