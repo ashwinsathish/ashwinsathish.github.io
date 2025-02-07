@@ -1,0 +1,502 @@
+<style>
+        /* Base styles */
+        body {
+            cursor: default;
+        }
+        
+        /* Interactive elements */
+        a, button, .nav-link {
+            cursor: pointer;
+        }
+        
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A5568;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .section-heading {
+            border-bottom: 2px solid #4A5568;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    
+        /* Dark mode color scheme */
+        :root {
+            color-scheme: light dark;
+        }
+    
+        /* Base dark mode colors */
+        .dark body {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+    
+        /* Navigation dark mode */
+        .dark nav.bg-white {
+            background-color: #2d3748;
+        }
+    
+        /* Sections dark mode */
+        .dark .bg-gray-50 {
+            background-color: #1a202c !important;
+        }
+    
+        .dark .bg-gradient-to-r {
+            background: #2d3748;
+        }
+    
+        /* Cards and containers dark mode */
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+    
+        .dark .text-gray-800 {
+            color: #f7fafc;
+        }
+    
+        .dark .text-gray-700 {
+            color: #e2e8f0;
+        }
+    
+        .dark .text-gray-600 {
+            color: #cbd5e0;
+            transition: color 0.15s ease;
+        }
+    
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Experience Section Dark Mode Styles */
+        .dark .group:hover {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    
+        /* Company name hover colors */
+        .dark .group:hover .text-gray-600.group-hover\:text-red-600 {
+            color: #FC8181 !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-indigo-600 {
+            color: #A3BFFA !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-blue-600 {
+            color: #90CDF4 !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
+            color: #FAF089 !important;
+        }
+    
+        /* Timeline dots */
+        .dark .bg-gray-200 {
+            background-color: #4a5568;
+        }
+    
+        .dark .timeline-dot {
+            transition: background-color 0.15s ease;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-red-600 {
+            background-color: #FC8181 !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-indigo-600 {
+            background-color: #A3BFFA !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-blue-600 {
+            background-color: #90CDF4 !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-yellow-600 {
+            background-color: hsl(49, 87%, 67%) !important;
+        }
+    
+        /* Experience cards with slower transitions */
+        .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg {
+            background-color: #2d3748 !important;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg:hover {
+            background-color: #374151 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Experience section hover colors with slower transitions */
+        .dark .group:hover .text-gray-600.group-hover\:text-red-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-indigo-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-blue-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
+            transition: color 0.3s ease;
+        }
+
+        /* Timeline dots with matching transition */
+        .dark .timeline-dot {
+            transition: background-color 0.3s ease;
+        }
+    
+        /* Project cards hover state */
+        .dark .project-card.group:hover {
+            background-color: #374151;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+    
+        .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none; /* Initially hidden */
+        width: 40px;
+        height: 40px;
+        background-color: #4A5568;
+        color: #E2E8F0;
+        border-radius: 50%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .back-to-top.visible {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .back-to-top:hover {
+        background-color: #718096;
+        transform: translateY(-5px);
+    }
+
+    .back-to-top i {
+        color: #E2E8F0;
+        font-size: 18px;
+    }
+
+    /* Dark mode styles for back to top button */
+    .dark .back-to-top {
+        background-color: #4A5568;
+        color: #E2E8F0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .dark .back-to-top:hover {
+        background-color: #718096;
+    }
+    
+        /* Mobile menu */
+        .dark .hamburger span {
+            background: #f7fafc;
+        }
+
+        /* Theme toggle button - both desktop and mobile */
+        #theme-toggle, #theme-toggle-mobile {
+            background-color: #f3f4f6;  /* Light gray background in light mode */
+            transition: background-color 0.15s ease;
+        }
+
+        #theme-toggle:hover, #theme-toggle-mobile:hover {
+            background-color: #e5e7eb;  /* Slightly darker on hover in light mode */
+        }
+    
+        /* Dark mode styles for both buttons */
+        .dark #theme-toggle, 
+        .dark #theme-toggle-mobile {
+            background-color: #4a5568;  /* Dark gray in dark mode */
+        }
+
+        .dark #theme-toggle:hover,
+        .dark #theme-toggle-mobile:hover {
+            background-color: #2d3748;  /* Darker gray on hover in dark mode */
+        }
+
+        /* Icon colors for both buttons */
+        .dark #theme-toggle svg,
+        .dark #theme-toggle-mobile svg {
+            color: #e2e8f0;  /* Light gray icon in dark mode */
+        }
+
+        #theme-toggle svg,
+        #theme-toggle-mobile svg {
+            color: #4b5563;  /* Dark gray icon in light mode */
+        }
+    
+        /* Link colors for dark mode */
+        .dark .text-blue-600 {
+            color: #93C5FD !important;
+            transition: color 0.15s ease;
+        }
+    
+        .dark .text-blue-600:hover {
+            color: #BFDBFE !important;
+        }
+    
+        /* GitHub links */
+        .dark .text-blue-600.hover\:text-purple-700 {
+            color: #C4B5FD !important;
+        }
+    
+        .dark .text-blue-600.hover\:text-purple-700:hover {
+            color: #DDD6FE !important;
+        }
+    
+        /* Learn More links */
+        .dark .text-blue-600.hover\:text-blue-800 {
+            color: #93C5FD !important;
+        }
+    
+        .dark .text-blue-600.hover\:text-blue-800:hover {
+            color: #BFDBFE !important;
+        }
+    
+        /* Link colors with icons */
+        .dark .text-blue-600 i,
+        .dark .text-blue-600 svg {
+            color: inherit;
+        }
+    
+        /* Social Media Icons */
+        /* Email hover */
+        .dark .text-gray-600.hover\:text-yellow-500:hover {
+            color: #FCD34D !important;
+        }
+    
+        /* GitHub hover */
+        .dark .text-gray-600.hover\:text-purple-700:hover {
+            color: #C4B5FD !important;
+        }
+    
+        /* LinkedIn hover */
+        .dark .text-gray-600.hover\:text-blue-800:hover {
+            color: #93C5FD !important;
+        }
+    
+        /* Footer */
+        .dark .bg-gray-800 {
+            background-color: #1a202c;
+        }
+    
+        /* Section headings */
+        .dark .section-heading {
+            border-bottom-color: #4a5568;
+        }
+
+        /* Contact Section Social Links */
+        .dark .text-gray-600.hover\:text-green-600:hover {
+            color: #86EFAC !important; /* Light green for email */
+            transition: color 0.15s ease;
+        }
+
+        .dark .text-gray-600.hover\:text-blue-700:hover {
+            color: #93C5FD !important; /* Light blue for LinkedIn */
+            transition: color 0.15s ease;
+        }
+
+        /* Just to ensure all social link transitions are consistent */
+        .dark .text-gray-600.hover\:text-purple-700:hover {
+            color: #C4B5FD !important; /* Light purple for GitHub */
+            transition: color 0.15s ease;
+        }
+
+        /* Modal animations */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes modalFadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+
+        /* Make project cards clickable */
+        .project-card {
+            cursor: pointer;
+        }
+
+        .project-card a {
+            cursor: pointer;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Dark mode modal backdrop */
+        .dark #modal-backdrop {
+            background-color: rgba(26, 32, 44, 0.7); /* Dark background from tailwind's dark mode palette */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* Dark mode modal styling */
+        .dark #modal-container .bg-white {
+            background-color: #2D3748 !important; /* Slightly lighter than the darkest background */
+            border: 1px solid rgba(255,255,255,0.1); /* Subtle border */
+        }
+
+        /* Modal header in dark mode */
+        .dark #modal-container .border-b {
+            border-bottom-color: rgba(255,255,255,0.1) !important;
+        }
+
+        /* Enhance readability of modal content in dark mode */
+        .dark #modal-container .text-gray-600 {
+            color: #CBD5E0 !important; /* Lighter text for better contrast */
+        }
+
+        .dark #modal-container .text-gray-800 {
+            color: #E2E8F0 !important;
+        }
+
+        .dark #modal-container .text-gray-600 {
+            color: #A0AEC0 !important;
+        }
+
+        /* List styling in dark mode */
+        .dark #modal-container .list-disc {
+            color: #CBD5E0;
+        }
+    </style>
+
+    <style>
+    /* Hamburger icon styling */
+    .hamburger {
+        width: 24px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: #4A5568;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    .hamburger span:nth-child(1) { top: 0px; }
+    .hamburger span:nth-child(2) { top: 9px; }
+    .hamburger span:nth-child(3) { top: 18px; }
+
+    /* X animation */
+    .hamburger.open span:nth-child(1) {
+        top: 9px;
+        transform: rotate(135deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+
+    .hamburger.open span:nth-child(3) {
+        top: 9px;
+        transform: rotate(-135deg);
+    }
+
+    /* Mobile menu animation and glassmorphism */
+    .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(240,240,240, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu.open {
+        max-height: 300px;
+    }
+
+    /* Dark mode mobile menu */
+    .dark .mobile-menu {
+        background: rgba(45, 55, 72, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Mobile nav-link styling */
+    .mobile-menu .nav-link {
+        position: relative;
+        display: block;
+        padding: 0.75rem 1.5rem;
+        margin: 0 auto;
+        max-width: 1280px; /* matches container width */
+    }
+
+    .mobile-menu .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0.5rem;
+        left: 1.5rem;
+        background-color: #4A5568;
+        transition: width 0.3s ease-in-out;
+    }
+
+    .dark .mobile-menu .nav-link::after {
+        background-color: #E2E8F0;
+    }
+
+    .mobile-menu .nav-link:hover::after {
+        width: 2rem;
+    }
+
+    /* Copy citation button */
+    .copy-citation-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+
+    @media (max-width: 767px) {
+        .copy-citation-btn {
+            order: 1;
+            margin-left: auto;
+        }
+    }
+</style>

@@ -6,12 +6,414 @@
     <title>Ashwin Sathish Kumar - Research Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <script src="js/script.js" defer></script>
+    <style>
+        /* Base styles */
+        body {
+            cursor: default;
+        }
+        
+        /* Interactive elements */
+        a, button, .nav-link {
+            cursor: pointer;
+        }
+        
+        /* Navigation styles */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4A5568;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .section-heading {
+            border-bottom: 2px solid #4A5568;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    
+        /* Dark mode color scheme */
+        :root {
+            color-scheme: light dark;
+        }
+    
+        /* Base dark mode colors */
+        .dark body {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+    
+        /* Navigation dark mode */
+        .dark nav.bg-white {
+            background-color: #2d3748;
+        }
+    
+        /* Sections dark mode */
+        .dark .bg-gray-50 {
+            background-color: #1a202c !important;
+        }
+    
+        .dark .bg-gradient-to-r {
+            background: #2d3748;
+        }
+    
+        /* Cards and containers dark mode */
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+    
+        .dark .text-gray-800 {
+            color: #f7fafc;
+        }
+    
+        .dark .text-gray-700 {
+            color: #e2e8f0;
+        }
+    
+        .dark .text-gray-600 {
+            color: #cbd5e0;
+            transition: color 0.15s ease;
+        }
+    
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Experience Section Dark Mode Styles */
+        .dark .group:hover {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    
+        /* Company name hover colors */
+        .dark .group:hover .text-gray-600.group-hover\:text-red-600 {
+            color: #FC8181 !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-indigo-600 {
+            color: #A3BFFA !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-blue-600 {
+            color: #90CDF4 !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
+            color: #FAF089 !important;
+        }
+    
+        /* Timeline dots */
+        .dark .bg-gray-200 {
+            background-color: #4a5568;
+        }
+    
+        .dark .timeline-dot {
+            transition: background-color 0.15s ease;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-red-600 {
+            background-color: #FC8181 !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-indigo-600 {
+            background-color: #A3BFFA !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-blue-600 {
+            background-color: #90CDF4 !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-yellow-600 {
+            background-color: hsl(49, 87%, 67%) !important;
+        }
+    
+        /* Experience cards with slower transitions */
+        .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg {
+            background-color: #2d3748 !important;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg:hover {
+            background-color: #374151 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Experience section hover colors with slower transitions */
+        .dark .group:hover .text-gray-600.group-hover\:text-red-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-indigo-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-blue-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
+            transition: color 0.3s ease;
+        }
+
+        /* Timeline dots with matching transition */
+        .dark .timeline-dot {
+            transition: background-color 0.3s ease;
+        }
+    
+        /* Project cards hover state */
+        .dark .project-card.group:hover {
+            background-color: #374151;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Back to top button */
+        .dark .back-to-top {
+            background-color: #4A5568;
+            color: #E2E8F0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, background-color 0.15s ease, box-shadow 0.2s ease;
+        }
+    
+        .dark .back-to-top:hover {
+            background-color: #718096;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+    
+        .dark .back-to-top i {
+            color: #E2E8F0;
+        }
+    
+        /* Mobile menu */
+        .dark .hamburger span {
+            background: #f7fafc;
+        }
+
+        /* Theme toggle button - both desktop and mobile */
+        #theme-toggle, #theme-toggle-mobile {
+            background-color: #f3f4f6;  /* Light gray background in light mode */
+            transition: background-color 0.15s ease;
+        }
+
+        #theme-toggle:hover, #theme-toggle-mobile:hover {
+            background-color: #e5e7eb;  /* Slightly darker on hover in light mode */
+        }
+    
+        /* Dark mode styles for both buttons */
+        .dark #theme-toggle, 
+        .dark #theme-toggle-mobile {
+            background-color: #4a5568;  /* Dark gray in dark mode */
+        }
+
+        .dark #theme-toggle:hover,
+        .dark #theme-toggle-mobile:hover {
+            background-color: #2d3748;  /* Darker gray on hover in dark mode */
+        }
+
+        /* Icon colors for both buttons */
+        .dark #theme-toggle svg,
+        .dark #theme-toggle-mobile svg {
+            color: #e2e8f0;  /* Light gray icon in dark mode */
+        }
+
+        #theme-toggle svg,
+        #theme-toggle-mobile svg {
+            color: #4b5563;  /* Dark gray icon in light mode */
+        }
+    
+        /* Link colors for dark mode */
+        .dark .text-blue-600 {
+            color: #93C5FD !important;
+            transition: color 0.15s ease;
+        }
+    
+        .dark .text-blue-600:hover {
+            color: #BFDBFE !important;
+        }
+    
+        /* GitHub links */
+        .dark .text-blue-600.hover\:text-purple-700 {
+            color: #C4B5FD !important;
+        }
+    
+        .dark .text-blue-600.hover\:text-purple-700:hover {
+            color: #DDD6FE !important;
+        }
+    
+        /* Learn More links */
+        .dark .text-blue-600.hover\:text-blue-800 {
+            color: #93C5FD !important;
+        }
+    
+        .dark .text-blue-600.hover\:text-blue-800:hover {
+            color: #BFDBFE !important;
+        }
+    
+        /* Link colors with icons */
+        .dark .text-blue-600 i,
+        .dark .text-blue-600 svg {
+            color: inherit;
+        }
+    
+        /* Social Media Icons */
+        /* Email hover */
+        .dark .text-gray-600.hover\:text-yellow-500:hover {
+            color: #FCD34D !important;
+        }
+    
+        /* GitHub hover */
+        .dark .text-gray-600.hover\:text-purple-700:hover {
+            color: #C4B5FD !important;
+        }
+    
+        /* LinkedIn hover */
+        .dark .text-gray-600.hover\:text-blue-800:hover {
+            color: #93C5FD !important;
+        }
+    
+        /* Footer */
+        .dark .bg-gray-800 {
+            background-color: #1a202c;
+        }
+    
+        /* Section headings */
+        .dark .section-heading {
+            border-bottom-color: #4a5568;
+        }
+
+        /* Contact Section Social Links */
+        .dark .text-gray-600.hover\:text-green-600:hover {
+            color: #86EFAC !important; /* Light green for email */
+            transition: color 0.15s ease;
+        }
+
+        .dark .text-gray-600.hover\:text-blue-700:hover {
+            color: #93C5FD !important; /* Light blue for LinkedIn */
+            transition: color 0.15s ease;
+        }
+
+        /* Just to ensure all social link transitions are consistent */
+        .dark .text-gray-600.hover\:text-purple-700:hover {
+            color: #C4B5FD !important; /* Light purple for GitHub */
+            transition: color 0.15s ease;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-10">
+        <style>
+            /* Hamburger icon styling */
+            .hamburger {
+                width: 24px;
+                height: 20px;
+                position: relative;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                position: absolute;
+                height: 2px;
+                width: 100%;
+                background: #4A5568;
+                border-radius: 2px;
+                opacity: 1;
+                left: 0;
+                transform: rotate(0deg);
+                transition: .25s ease-in-out;
+            }
+
+            .hamburger span:nth-child(1) { top: 0px; }
+            .hamburger span:nth-child(2) { top: 9px; }
+            .hamburger span:nth-child(3) { top: 18px; }
+
+            /* X animation */
+            .hamburger.open span:nth-child(1) {
+                top: 9px;
+                transform: rotate(135deg);
+            }
+
+            .hamburger.open span:nth-child(2) {
+                opacity: 0;
+                left: -60px;
+            }
+
+            .hamburger.open span:nth-child(3) {
+                top: 9px;
+                transform: rotate(-135deg);
+            }
+
+            /* Mobile menu animation and glassmorphism */
+            .mobile-menu {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(240,240,240, 0.85);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .mobile-menu.open {
+                max-height: 300px;
+            }
+
+            /* Dark mode mobile menu */
+            .dark .mobile-menu {
+                background: rgba(45, 55, 72, 0.85);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            /* Mobile nav-link styling */
+            .mobile-menu .nav-link {
+                position: relative;
+                display: block;
+                padding: 0.75rem 1.5rem;
+                margin: 0 auto;
+                max-width: 1280px; /* matches container width */
+            }
+
+            .mobile-menu .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0.5rem;
+                left: 1.5rem;
+                background-color: #4A5568;
+                transition: width 0.3s ease-in-out;
+            }
+
+            .dark .mobile-menu .nav-link::after {
+                background-color: #E2E8F0;
+            }
+
+            .mobile-menu .nav-link:hover::after {
+                width: 2rem;
+            }
+
+            /* Copy citation button */
+            .copy-citation-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+            }
+
+            @media (max-width: 767px) {
+                .copy-citation-btn {
+                    order: 1;
+                    margin-left: auto;
+                }
+            }
+        </style>
+
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo/Name -->
@@ -165,7 +567,7 @@
                 <!-- TU Braunschweig -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="images/tubs.jpeg" alt="TU Braunschweig" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/tubs.jpeg" alt="TU Braunschweig" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-red-600 transition-colors duration-300"></div>
                     <div class="ml-20">
@@ -181,7 +583,7 @@
                 <!-- Offenburg -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="images/hso.jpg" alt="Offenburg University" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/hso.jpg" alt="Offenburg University" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-indigo-600 transition-colors duration-300"></div>
                     <div class="ml-20">
@@ -197,7 +599,7 @@
                 <!-- Corporate Gurukul -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="images/cg.jpeg" alt="Corporate Gurukul" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/cg.jpeg" alt="Corporate Gurukul" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-blue-600 transition-colors duration-300"></div>
                     <div class="ml-20">
@@ -213,7 +615,7 @@
                 <!-- CSIR -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="images/csir.jpg" alt="CSIR" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="/images/csir.jpg" alt="CSIR" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
                     <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-yellow-600 transition-colors duration-300"></div>
                     <div class="ml-20">
@@ -334,32 +736,32 @@
             <div class="grid md:grid-cols-2 gap-6">
 
                 <!-- 5G Virtualization Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="virtual-5g">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Virtual 5G Testbeds</h3>
                             <p class="text-gray-600 mb-4">A Python API framework for a virtualized 5G testbed using Open5GS and UERANSIM to implement 3 use-cases comprising eMBB, URLLC, and mMTC applications.</p>
                             <a href="https://github.com/ashwinsathish/Open5GS-API" target="_blank" rel="noopener noreferrer" 
-                            class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                               class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                 <span>View on GitHub</span>
                                 <i class="fab fa-github ml-2"></i>
                             </a>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
-                            <img src="images/open5gs.png" alt="5G Network virtualization thumbnail" class="max-w-full max-h-full object-contain">
+                            <img src="/images/open5gs.png" alt="5G Network virtualization thumbnail" class="max-w-full max-h-full object-contain">
                         </div>
                     </div>
                 </div>
 
                 <!-- Aerial IRS Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="aerial-irs">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Aerial IRS-assisted Wireless Communications</h3>
                             <p class="text-gray-600 mb-4">Implementation of Monte Carlo simulations for aerial IRS-assisted systems with focus on optimization and performance analysis.</p>
                             <div class="flex space-x-4 items-center">
                                 <a href="https://github.com/ashwinsathish/UAV-IRS-Communications" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                   class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                     <span>View on GitHub</span>
                                     <i class="fab fa-github ml-2"></i>
                                 </a>
@@ -372,112 +774,112 @@
                 </div>
 
                 <!-- Photonic Crystal Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="photonic-crystal">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Photonic Crystal-based Biosensors</h3>
                             <p class="text-gray-600 mb-4">Designed a photonic crystal-based SPR sensor using silicon and platinum diselenide stacks, achieving sensitivity of 101.1°/RIU.</p>
                             <div class="flex space-x-4 items-center">
                                 <a href="https://github.com/ashwinsathish/PhC-SPR-Biosensor" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                   class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                     <span>View on GitHub</span>
                                     <i class="fab fa-github ml-2"></i>
                                 </a>
                                 <a href="[OPTOIn_CONFERENCE_LINK]" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
                                     <span>Learn More</span>
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
-                            <img src="images/phc.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
+                            <img src="/images/phc.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
                         </div>
                     </div>
                 </div>
 
                 <!-- IRS with LiDAR Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="lidar-irs">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">LiDAR-enabled IRS Beamforming</h3>
                             <p class="text-gray-600 mb-4">Implemented a novel spatially-aware beamforming framework integrating LiDAR data with IRS systems, achieving 10.5% improvement in achievable rates.</p>
                             <div class="flex space-x-4 items-center">
                                 <a href="https://github.com/ashwinsathish/LiDAR-IRS-Beamforming" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                   class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                     <span>View on GitHub</span>
                                     <i class="fab fa-github ml-2"></i>
                                 </a>
                                 <a href="[ANTS_CONFERENCE_LINK]" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
                                     <span>Learn More</span>
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
-                            <img src="images/lidar.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
+                            <img src="/images/lidar.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
                         </div>
                     </div>
                 </div>
 
                 <!-- Aluminum Plasmonic Sensor Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="plasmonic-sensor">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Aluminum-based Plasmonic Sensor</h3>
                             <p class="text-gray-600 mb-4">Simulated an Aluminum-based SPR sensor with TiO2 and MoS2 coatings for cancer cell detection, achieving sensitivity of 101.2°/RIU.</p>
                             <div class="flex space-x-4 items-center">
                                 <a href="https://github.com/ashwinsathish/Metamaterial-SPR-Biosensor" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                   class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                     <span>View on GitHub</span>
                                     <i class="fab fa-github ml-2"></i>
                                 </a>
                                 <a href="https://doi.org/10.1117/12.3021474" target="_blank" rel="noopener noreferrer" 
-                                class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                   class="inline-flex items-center text-blue-600 hover:text-blue-800">
                                     <span>Learn More</span>
                                     <i class="fas fa-arrow-right ml-2"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0 flex items-center justify-center p-2">
-                            <img src="images/metamaterial.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
+                            <img src="/images/metamaterial.png" alt="Project thumbnail" class="max-w-full max-h-full object-contain">
                         </div>
                     </div>
                 </div>
 
                 <!-- FDTD Modelling Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="fdtd-modelling">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">FDTD Modelling for Non-destructive Testing</h3>
                             <p class="text-gray-600 mb-4">Conducted FDTD simulations on 3D concrete-rebar structure, applying staircase approximations and Mur's 2nd order boundary conditions.</p>
                             <a href="https://github.com/ashwinsathish/FDTD-analysis" target="_blank" rel="noopener noreferrer" 
-                            class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                               class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                 <span>View on GitHub</span>
                                 <i class="fab fa-github ml-2"></i>
                             </a>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0">
-                            <img src="images/fdtd.png" alt="Project thumbnail" class="w-full h-full object-cover">
+                            <img src="/images/fdtd.png" alt="Project thumbnail" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
 
                 <!-- Hyperbolic Book Recommender Project -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300 project-card" data-project-id="book-recommender">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden group hover:shadow-lg transform hover:scale-[1.02] transition-all duration-300">
                     <div class="flex">
                         <div class="p-6 flex-grow">
                             <h3 class="text-xl font-semibold text-gray-800 mb-3">Hyperbolic Book Recommender System</h3>
                             <p class="text-gray-600 mb-4">Implemented a recommendation algorithm using Poincaré embeddings and graph factorization on the Library of Congress dataset.</p>
                             <a href="https://github.com/ashwinsathish/Hyperbolic-embeddings" target="_blank" rel="noopener noreferrer" 
-                            class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                               class="inline-flex items-center text-blue-600 hover:text-purple-700">
                                 <span>View on GitHub</span>
                                 <i class="fab fa-github ml-2"></i>
                             </a>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0">
-                            <img src="images/hyperbolic.png" alt="Project thumbnail" class="w-full h-full object-cover">
+                            <img src="/images/hyperbolic.png" alt="Project thumbnail" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -525,31 +927,154 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
-
-    <!-- Modal Container -->
-    <div id="modal-container" class="fixed inset-0 z-50 hidden">
-        <!-- Backdrop with enhanced blur -->
-        <div class="fixed inset-0 transition-all duration-300" id="modal-backdrop" style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(8px); background-color: rgba(255, 255, 255, 0.5); z-index: 40;"></div>
-        
-        <!-- Modal -->
-        <div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-8">
-            <div class="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden transform transition-all duration-300">
-                <!-- Modal Header -->
-                <div class="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
-                    <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-200" id="modal-title"></h3>
-                    <button class="modal-close-btn text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                
-                <!-- Modal Content -->
-                <div class="p-4 sm:p-6 overflow-y-auto" style="max-height: calc(90vh - 120px);" id="modal-content">
-                    <!-- Content will be dynamically inserted here -->
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
+
+<script>
+    // Mobile menu toggle with animation
+    const hamburger = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    // Back to top functionality
+    const backToTopButton = document.getElementById('backToTop');
+
+    const toggleBackToTopButton = () => {
+        if (window.pageYOffset > 200) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    };
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        requestAnimationFrame(toggleBackToTopButton);
+    });
+
+    // Smooth scroll to top
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const copyButtons = document.querySelectorAll('.copy-citation-btn');
+        
+        copyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const citation = button.getAttribute('data-citation');
+                
+                // Create a temporary textarea to copy the text
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = citation;
+                document.body.appendChild(tempTextArea);
+                
+                // Select and copy the text
+                tempTextArea.select();
+                document.execCommand('copy');
+                
+                // Remove the temporary textarea
+                document.body.removeChild(tempTextArea);
+                
+                // Provide visual feedback
+                button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                
+                // Reset the button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>`;
+                }, 2000);
+            });
+        });
+    });
+
+    // Theme toggle functionality
+    function initializeTheme() {
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+        // Function to update icons based on theme
+        function updateIcons(isDark) {
+            if (isDark) {
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIconMobile.classList.remove('hidden');
+                themeToggleDarkIconMobile.classList.add('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIconMobile.classList.remove('hidden');
+                themeToggleLightIconMobile.classList.add('hidden');
+            }
+        }
+
+        // Set initial state
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateIcons(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateIcons(false);
+        }
+
+        // Function to toggle theme
+        function toggleTheme() {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    updateIcons(true);
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    updateIcons(false);
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    updateIcons(false);
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    updateIcons(true);
+                }
+            }
+        }
+
+        // Add click handlers to both buttons
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+    }
+
+    // Call the function when the page loads
+    document.addEventListener('DOMContentLoaded', initializeTheme);
+</script>
+
 </html>
