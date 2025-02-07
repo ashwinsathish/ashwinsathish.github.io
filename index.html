@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +7,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        /* Add these new styles */
+        /* Base styles */
         body {
             cursor: default;
         }
         
-        /* Keep pointer cursor only for interactive elements */
+        /* Interactive elements */
         a, button, .nav-link {
             cursor: pointer;
         }
         
-        /* Your existing styles */
+        /* Navigation styles */
         .nav-link {
             position: relative;
         }
@@ -38,6 +38,262 @@
             border-bottom: 2px solid #4A5568;
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
+        }
+    
+        /* Dark mode color scheme */
+        :root {
+            color-scheme: light dark;
+        }
+    
+        /* Base dark mode colors */
+        .dark body {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+    
+        /* Navigation dark mode */
+        .dark nav.bg-white {
+            background-color: #2d3748;
+        }
+    
+        /* Sections dark mode */
+        .dark .bg-gray-50 {
+            background-color: #1a202c !important;
+        }
+    
+        .dark .bg-gradient-to-r {
+            background: #2d3748;
+        }
+    
+        /* Cards and containers dark mode */
+        .dark .bg-white {
+            background-color: #2d3748;
+        }
+    
+        .dark .text-gray-800 {
+            color: #f7fafc;
+        }
+    
+        .dark .text-gray-700 {
+            color: #e2e8f0;
+        }
+    
+        .dark .text-gray-600 {
+            color: #cbd5e0;
+            transition: color 0.15s ease;
+        }
+    
+        .dark .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Experience Section Dark Mode Styles */
+        .dark .group:hover {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+    
+        /* Company name hover colors */
+        .dark .group:hover .text-gray-600.group-hover\:text-red-600 {
+            color: #FC8181 !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-indigo-600 {
+            color: #A3BFFA !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-blue-600 {
+            color: #90CDF4 !important;
+        }
+    
+        .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
+            color: #FAF089 !important;
+        }
+    
+        /* Timeline dots */
+        .dark .bg-gray-200 {
+            background-color: #4a5568;
+        }
+    
+        .dark .timeline-dot {
+            transition: background-color 0.15s ease;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-red-600 {
+            background-color: #FC8181 !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-indigo-600 {
+            background-color: #A3BFFA !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-blue-600 {
+            background-color: #90CDF4 !important;
+        }
+    
+        .dark .group:hover .timeline-dot.group-hover\:bg-yellow-600 {
+            background-color: hsl(49, 87%, 67%) !important;
+        }
+    
+        /* Experience cards with slower transitions */
+        .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg {
+            background-color: #2d3748 !important;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg:hover {
+            background-color: #374151 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Experience section hover colors with slower transitions */
+        .dark .group:hover .text-gray-600.group-hover\:text-red-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-indigo-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-blue-600,
+        .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
+            transition: color 0.3s ease;
+        }
+
+        /* Timeline dots with matching transition */
+        .dark .timeline-dot {
+            transition: background-color 0.3s ease;
+        }
+    
+        /* Project cards hover state */
+        .dark .project-card.group:hover {
+            background-color: #374151;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+    
+        /* Back to top button */
+        .dark .back-to-top {
+            background-color: #4A5568;
+            color: #E2E8F0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, background-color 0.15s ease, box-shadow 0.2s ease;
+        }
+    
+        .dark .back-to-top:hover {
+            background-color: #718096;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+    
+        .dark .back-to-top i {
+            color: #E2E8F0;
+        }
+    
+        /* Mobile menu */
+        .dark .hamburger span {
+            background: #f7fafc;
+        }
+
+        /* Theme toggle button - both desktop and mobile */
+        #theme-toggle, #theme-toggle-mobile {
+            background-color: #f3f4f6;  /* Light gray background in light mode */
+            transition: background-color 0.15s ease;
+        }
+
+        #theme-toggle:hover, #theme-toggle-mobile:hover {
+            background-color: #e5e7eb;  /* Slightly darker on hover in light mode */
+        }
+    
+        /* Dark mode styles for both buttons */
+        .dark #theme-toggle, 
+        .dark #theme-toggle-mobile {
+            background-color: #4a5568;  /* Dark gray in dark mode */
+        }
+
+        .dark #theme-toggle:hover,
+        .dark #theme-toggle-mobile:hover {
+            background-color: #2d3748;  /* Darker gray on hover in dark mode */
+        }
+
+        /* Icon colors for both buttons */
+        .dark #theme-toggle svg,
+        .dark #theme-toggle-mobile svg {
+            color: #e2e8f0;  /* Light gray icon in dark mode */
+        }
+
+        #theme-toggle svg,
+        #theme-toggle-mobile svg {
+            color: #4b5563;  /* Dark gray icon in light mode */
+        }
+    
+        /* Link colors for dark mode */
+        .dark .text-blue-600 {
+            color: #93C5FD !important;
+            transition: color 0.15s ease;
+        }
+    
+        .dark .text-blue-600:hover {
+            color: #BFDBFE !important;
+        }
+    
+        /* GitHub links */
+        .dark .text-blue-600.hover\:text-purple-700 {
+            color: #C4B5FD !important;
+        }
+    
+        .dark .text-blue-600.hover\:text-purple-700:hover {
+            color: #DDD6FE !important;
+        }
+    
+        /* Learn More links */
+        .dark .text-blue-600.hover\:text-blue-800 {
+            color: #93C5FD !important;
+        }
+    
+        .dark .text-blue-600.hover\:text-blue-800:hover {
+            color: #BFDBFE !important;
+        }
+    
+        /* Link colors with icons */
+        .dark .text-blue-600 i,
+        .dark .text-blue-600 svg {
+            color: inherit;
+        }
+    
+        /* Social Media Icons */
+        /* Email hover */
+        .dark .text-gray-600.hover\:text-yellow-500:hover {
+            color: #FCD34D !important;
+        }
+    
+        /* GitHub hover */
+        .dark .text-gray-600.hover\:text-purple-700:hover {
+            color: #C4B5FD !important;
+        }
+    
+        /* LinkedIn hover */
+        .dark .text-gray-600.hover\:text-blue-800:hover {
+            color: #93C5FD !important;
+        }
+    
+        /* Footer */
+        .dark .bg-gray-800 {
+            background-color: #1a202c;
+        }
+    
+        /* Section headings */
+        .dark .section-heading {
+            border-bottom-color: #4a5568;
+        }
+
+        /* Contact Section Social Links */
+        .dark .text-gray-600.hover\:text-green-600:hover {
+            color: #86EFAC !important; /* Light green for email */
+            transition: color 0.15s ease;
+        }
+
+        .dark .text-gray-600.hover\:text-blue-700:hover {
+            color: #93C5FD !important; /* Light blue for LinkedIn */
+            transition: color 0.15s ease;
+        }
+
+        /* Just to ensure all social link transitions are consistent */
+        .dark .text-gray-600.hover\:text-purple-700:hover {
+            color: #C4B5FD !important; /* Light purple for GitHub */
+            transition: color 0.15s ease;
         }
     </style>
 </head>
@@ -119,91 +375,130 @@
                 width: 2rem;
             }
 
-                /* Back to top button */
-                .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background-color: white;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 50;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top i {
-            color: #4A5568;
-            transition: color 0.3s ease;
-        }
-
-        .back-to-top:hover i {
-            color: #2D3748;
-        }
-
-        .copy-citation-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 24px;
-            height: 24px;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 767px) {
-            .copy-citation-btn {
-                order: 1;
-                margin-left: auto;
+            /* Back to top button */
+            .back-to-top {
+                position: fixed;
+                bottom: 2rem;
+                right: 2rem;
+                background-color: white;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 50;
             }
-        }
+
+            .back-to-top:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            .back-to-top.visible {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .back-to-top i {
+                color: #4A5568;
+                transition: color 0.3s ease;
+            }
+
+            .back-to-top:hover i {
+                color: #2D3748;
+            }
+
+            .dark .back-to-top {
+                background-color: #4A5568;  /* A lighter shade of gray */
+                color: #E2E8F0;  /* Light gray text for contrast */
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .dark .back-to-top:hover {
+                background-color: #718096;  /* Even lighter on hover */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            }
+
+            .dark .back-to-top i {
+                color: #E2E8F0;  /* Light gray icon */
+            }
+
+            .copy-citation-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+            }
+
+            /* Responsive adjustments */
+            @media (max-width: 767px) {
+                .copy-citation-btn {
+                    order: 1;
+                    margin-left: auto;
+                }
+            }
         </style>
 
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
-                <a href="#" class="text-xl font-semibold text-gray-700">Ashwin Sathish Kumar</a>
+                <!-- Logo/Name -->
+                <a href="#" class="text-xl font-semibold text-gray-700 dark:text-gray-200">Ashwin Sathish Kumar</a>
                 
-                <!-- Minimal hamburger menu button -->
-                <div class="hamburger md:hidden" id="mobile-menu-button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <!-- Desktop navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About Me</a>
+                    <a href="#research" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Research</a>
+                    <a href="#publications" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Publications</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
+                    
+                    <!-- Theme toggle button for desktop -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
                 </div>
 
-                <!-- Desktop navigation -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900">About</a>
-                    <a href="#research" class="nav-link text-gray-700 hover:text-gray-900">Research</a>
-                    <a href="#publications" class="nav-link text-gray-700 hover:text-gray-900">Publications</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900">Projects</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900">Contact</a>
+                <!-- Mobile header controls -->
+                <div class="flex items-center space-x-4 md:hidden">
+                    <!-- Theme toggle button for mobile -->
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none">                        
+                        <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5 text-gray-600 dark:text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+                        </svg>
+                    </button>
+                    
+                    <!-- Hamburger menu -->
+                    <div class="hamburger" id="mobile-menu-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Mobile navigation -->
+            <!-- Mobile navigation menu -->
             <div class="mobile-menu md:hidden">
                 <div class="py-2 space-y-1">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900">About</a>
-                    <a href="#research" class="nav-link text-gray-700 hover:text-gray-900">Research</a>
-                    <a href="#publications" class="nav-link text-gray-700 hover:text-gray-900">Publications</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900">Projects</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900">Contact</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About Me</a>
+                    <a href="#research" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Research</a>
+                    <a href="#publications" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Publications</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
                 </div>
             </div>
         </div>
@@ -257,34 +552,34 @@
         </div>
     </section>
 
-    <!-- Research Interests -->
+<!-- Research Interests -->
     <section id="research" class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="section-heading text-3xl font-bold text-gray-800">Research Interests</h2>
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Wireless Communications -->
                 <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
-                    <div class="flex items-center justify-between h-16">
-                        <h3 class="text-xl font-semibold text-gray-800 pr-4">Wireless Communications</h3>
-                        <i class="fas fa-broadcast-tower text-3xl text-gray-300 group-hover:text-blue-500 transform group-hover:scale-110 transition-all duration-300"></i>
+                    <div class="flex items-start justify-between">
+                        <h3 class="text-xl font-semibold text-gray-800 flex-1 pr-4">Wireless Communications</h3>
+                        <i class="fas fa-broadcast-tower text-2xl lg:text-3xl text-gray-300 group-hover:text-blue-500 transform group-hover:scale-110 transition-all duration-300 flex-shrink-0"></i>
                     </div>
                     <p class="text-gray-600 leading-relaxed mt-6">Exploring 5G/6G technologies with focus on network virtualization, UAV-aided communications, and optimization of wireless systems for next-generation applications.</p>
                 </div>
 
                 <!-- RIS -->
                 <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
-                    <div class="flex items-center justify-between h-16">
-                        <h3 class="text-xl font-semibold text-gray-800 pr-4">Reconfigurable Intelligent Surfaces</h3>
-                        <i class="fas fa-wave-square text-3xl text-gray-300 group-hover:text-purple-500 transform group-hover:scale-110 transition-all duration-300"></i>
+                    <div class="flex items-start justify-between">
+                        <h3 class="text-xl font-semibold text-gray-800 flex-1 pr-4">Reconfigurable Intelligent Surfaces</h3>
+                        <i class="fas fa-wave-square text-2xl lg:text-3xl text-gray-300 group-hover:text-purple-500 transform group-hover:scale-110 transition-all duration-300 flex-shrink-0"></i>
                     </div>
                     <p class="text-gray-600 leading-relaxed mt-6">Development of beamforming algorithms and phase optimization techniques for RIS-aided wireless networks, with emphasis on spatial awareness and environmental adaptation.</p>
                 </div>
 
                 <!-- Plasmonics -->
                 <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
-                    <div class="flex items-center justify-between h-16">
-                        <h3 class="text-xl font-semibold text-gray-800 pr-4">Plasmonics</h3>
-                        <i class="fas fa-atom text-3xl text-gray-300 group-hover:text-yellow-500 transform group-hover:scale-110 transition-all duration-300"></i>
+                    <div class="flex items-start justify-between">
+                        <h3 class="text-xl font-semibold text-gray-800 flex-1 pr-4">Plasmonics</h3>
+                        <i class="fas fa-atom text-2xl lg:text-3xl text-gray-300 group-hover:text-yellow-500 transform group-hover:scale-110 transition-all duration-300 flex-shrink-0"></i>
                     </div>
                     <p class="text-gray-600 leading-relaxed mt-6">Design and simulation of surface plasmon resonance sensors using novel materials and metamaterial structures for high-sensitivity biosensing applications.</p>
                 </div>
@@ -292,7 +587,7 @@
         </div>
     </section>
 
-    <!-- Experience Timeline Section -->
+    <!-- EXPERIENCE TIMELINE SECTION -->
     <section id="experience" class="py-16">
         <div class="container mx-auto px-6">
             <h2 class="section-heading text-3xl font-bold text-gray-800 mb-12">Experience</h2>
@@ -304,14 +599,14 @@
                 <!-- TU Braunschweig -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="/images/tubs.jpeg" alt="TU Braunschweig" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/tubs.jpeg" alt="TU Braunschweig" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
-                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-red-600 transition-colors duration-300"></div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-red-600 transition-colors duration-300"></div>
                     <div class="ml-20">
                         <span class="text-sm text-gray-500 font-medium mb-2 block">Jan 2025 - Present</span>
                         <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
                             <h3 class="text-lg font-semibold text-gray-800 mb-1">Visiting Student</h3>
-                            <p class="text-gray-600 mb-3 group-hover:text-red-600 transition-colors duration-300">Technische Universität Braunschweig</p>
+                            <p class="text-gray-600 group-hover:text-red-600 mb-3 transition-colors duration-300">Technische Universität Braunschweig</p>
                             <p class="text-gray-600 leading-relaxed">Working on Master's thesis on Multi-User RIS-aided Communication at the Institute for Communications Technology.</p>
                         </div>
                     </div>
@@ -320,14 +615,14 @@
                 <!-- Offenburg -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="/images/hso.jpg" alt="Offenburg University" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/hso.jpg" alt="Offenburg University" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
-                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-indigo-800 transition-colors duration-300"></div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-indigo-600 transition-colors duration-300"></div>
                     <div class="ml-20">
                         <span class="text-sm text-gray-500 font-medium mb-2 block">Jul - Dec 2024</span>
                         <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
                             <h3 class="text-lg font-semibold text-gray-800 mb-1">Visiting Student</h3>
-                            <p class="text-gray-600 mb-3 group-hover:text-indigo-800 transition-colors duration-300">Offenburg University of Applied Sciences</p>
+                            <p class="text-gray-600 group-hover:text-indigo-600 mb-3 transition-colors duration-300">Offenburg University of Applied Sciences</p>
                             <p class="text-gray-600 leading-relaxed">Implemented virtualized 5G network testbed with Open5GS and UERANSIM, developing use-cases for eMBB, URLLC, and mMTC applications.</p>
                         </div>
                     </div>
@@ -336,14 +631,14 @@
                 <!-- Corporate Gurukul -->
                 <div class="mb-12 flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="/images/cg.jpeg" alt="Corporate Gurukul" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/cg.jpeg" alt="Corporate Gurukul" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
-                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-blue-700 transition-colors duration-300"></div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-blue-600 transition-colors duration-300"></div>
                     <div class="ml-20">
                         <span class="text-sm text-gray-500 font-medium mb-2 block">Jun - Sep 2022</span>
                         <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
                             <h3 class="text-lg font-semibold text-gray-800 mb-1">Teaching Assistant</h3>
-                            <p class="text-gray-600 mb-3 group-hover:text-blue-700 transition-colors duration-300">Corporate Gurukul</p>
+                            <p class="text-gray-600 group-hover:text-blue-600 mb-3 transition-colors duration-300">Corporate Gurukul</p>
                             <p class="text-gray-600 leading-relaxed">Mentored 40 participants for the AI Young Achievers program in collaboration with NTU Singapore and HPE.</p>
                         </div>
                     </div>
@@ -352,23 +647,22 @@
                 <!-- CSIR -->
                 <div class="flex group">
                     <div class="w-20 h-20 flex-shrink-0 self-center">
-                        <img src="/images/csir.jpg" alt="CSIR" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
+                        <img src="./images/csir.jpg" alt="CSIR" class="w-full h-full object-contain group-hover:opacity-90 transition-opacity"/>
                     </div>
-                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 group-hover:bg-yellow-500 transition-colors duration-300"></div>
+                    <div class="absolute w-3 h-3 bg-gray-200 rounded-full left-32 transform -translate-x-1/2 mt-3 timeline-dot group-hover:bg-yellow-600 transition-colors duration-300"></div>
                     <div class="ml-20">
                         <span class="text-sm text-gray-500 font-medium mb-2 block">May - Jul 2022</span>
                         <div class="bg-white rounded-lg shadow-md p-5 group-hover:shadow-lg transition-all duration-300">
                             <h3 class="text-lg font-semibold text-gray-800 mb-1">Internship Trainee</h3>
-                            <p class="text-gray-600 mb-3 group-hover:text-yellow-500 transition-colors duration-300">CSIR - Central Scientific Instruments Organization</p>
+                            <p class="text-gray-600 group-hover:text-yellow-600 mb-3 transition-colors duration-300">CSIR - Central Scientific Instruments Organization</p>
                             <p class="text-gray-600 leading-relaxed">Developed a hyperbolic geometry-based recommendation algorithm at the Centre of Excellence for Intelligent Sensors & Systems.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
-
+    
     <!-- Publications -->
     <section id="publications" class="py-16">
         <div class="container mx-auto px-6">
@@ -404,7 +698,7 @@
                         </div>
                     </div>
                 </div>
-
+    
                 <!-- Second Paper -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex flex-col md:flex-row md:items-center gap-4">
@@ -437,7 +731,7 @@
                         </div>
                     </div>
                 </div>
-
+    
                 <!-- Third Paper -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex flex-col md:flex-row md:items-center gap-4">
@@ -625,7 +919,7 @@
                             </a>
                         </div>
                         <div class="w-32 h-32 bg-gray-200 flex-shrink-0">
-                            <img src="/images/Hyperbolic_orthogonal_dodecahedral_honeycomb.png" alt="Project thumbnail" class="w-full h-full object-cover">
+                            <img src="/images/hyperbolic.png" alt="Project thumbnail" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -749,11 +1043,78 @@
                 
                 // Reset the button after 2 seconds
                 setTimeout(() => {
-                    button.innerHTML = '<i class="fas fa-clipboard"></i>';
+                    button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>`;
                 }, 2000);
             });
         });
     });
+
+    // Theme toggle functionality
+    function initializeTheme() {
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+        // Function to update icons based on theme
+        function updateIcons(isDark) {
+            if (isDark) {
+                themeToggleLightIcon.classList.remove('hidden');
+                themeToggleDarkIcon.classList.add('hidden');
+                themeToggleLightIconMobile.classList.remove('hidden');
+                themeToggleDarkIconMobile.classList.add('hidden');
+            } else {
+                themeToggleDarkIcon.classList.remove('hidden');
+                themeToggleLightIcon.classList.add('hidden');
+                themeToggleDarkIconMobile.classList.remove('hidden');
+                themeToggleLightIconMobile.classList.add('hidden');
+            }
+        }
+
+        // Set initial state
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            updateIcons(true);
+        } else {
+            document.documentElement.classList.remove('dark');
+            updateIcons(false);
+        }
+
+        // Function to toggle theme
+        function toggleTheme() {
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    updateIcons(true);
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    updateIcons(false);
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                    updateIcons(false);
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                    updateIcons(true);
+                }
+            }
+        }
+
+        // Add click handlers to both buttons
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+    }
+
+    // Call the function when the page loads
+    document.addEventListener('DOMContentLoaded', initializeTheme);
 </script>
 
 </html>
