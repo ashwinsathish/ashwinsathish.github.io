@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenu.classList.toggle('open');
     });
 
+    // Add smooth scroll to all navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', smoothScroll);
+    });
+
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
         link.addEventListener('click', () => {
@@ -265,3 +270,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Smooth scroll function
+function smoothScroll(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute("href");
+    if (targetId === "#") return;
+    
+    const targetPosition = document.querySelector(targetId).offsetTop;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition - 60; // Subtract header height
+    const duration = 800;
+    let start = null;
+
+    function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    // Easing function
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}

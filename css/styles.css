@@ -1,4 +1,8 @@
 /* Base styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     cursor: default;
 }
@@ -161,8 +165,8 @@ a, button, .nav-link {
     bottom: 20px;
     right: 20px;
     display: none; /* Initially hidden */
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     background-color: #4A5568;
     color: #E2E8F0;
     border-radius: 50%;
@@ -459,6 +463,14 @@ a, button, .nav-link {
     cursor: pointer;
     z-index: 1;
     position: relative;
+}
+
+/* Light mode modal backdrop */
+#modal-backdrop {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 40;
 }
 
 /* Dark mode modal backdrop */
