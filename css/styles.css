@@ -375,7 +375,7 @@ a, button, .nav-link {
 
 .hamburger.open span:nth-child(2) {
     opacity: 0;
-    left: -60px;
+    /* left: -60px; */
 }
 
 .hamburger.open span:nth-child(3) {
