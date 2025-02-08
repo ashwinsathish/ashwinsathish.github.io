@@ -284,6 +284,7 @@ function smoothScroll(e) {
 
     window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
+        duration: 1500  
     });
 }
