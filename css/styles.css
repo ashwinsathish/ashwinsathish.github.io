@@ -127,7 +127,7 @@ a, button, .nav-link {
 }
 
 .dark .group:hover .timeline-dot.group-hover\:bg-yellow-600 {
-    background-color: hsl(49, 87%, 67%) !important;
+    background-color: hsl(49, 85%, 63%) !important;
 }
 
 /* Experience cards with slower transitions */
