@@ -149,6 +149,86 @@ a, button, .nav-link {
     transition: color 0.3s ease;
 }
 
+/* Default desktop layout remains the same */
+.experience-timeline {
+    display: flex;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    /* Container flex adjustments */
+    .mb-12.flex.group {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    /* Keep image size fixed but adjust container */
+    .mb-12.flex.group .w-20.h-20 {
+        flex: 0 0 auto;
+        position: relative;
+    }
+
+    /* Content area */
+    .mb-12.flex.group .ml-20 {
+        margin-left: 1.5rem;
+        flex: 1;
+    }
+
+    /* Timeline vertical line - centered between logo and card */
+    .absolute.h-full.w-px.bg-gray-200.left-32 {
+        left: 6.25rem;  /* Increased from 5.5rem to center it */
+    }
+
+    /* Timeline dots - match the line position */
+    .absolute.w-3.h-3.bg-gray-200.rounded-full.left-32 {
+        left: 6.25rem;  /* Match the line position */
+    }
+}
+
+/* Ensure images maintain aspect ratio */
+@media (max-width: 768px) {
+    .mb-12.flex.group .w-20 img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+/* Project card footer border color transition */
+.project-card .px-6.py-4.border-t {
+    border-color: #e2e8f0;  /* Light mode border color */
+    transition: border-color 0.15s ease;
+}
+
+/* Dark mode project card footer border */
+.dark .project-card .px-6.py-4.border-t {
+    border-color: #4a5568 !important;  /* Darker, more subtle border color for dark mode */
+}
+
+/* Project card footer styles */
+.project-card .footer-separator {
+    position: relative;
+    margin-top: auto;
+    padding: 1rem 1.5rem;  /* Match the content padding */
+}
+
+.project-card .footer-separator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;    /* Matches the padding-left */
+    right: 24px;   /* Matches the padding-right */
+    height: 1px;
+    background-color: #e2e8f0;
+    transition: background-color 0.15s ease;
+}
+
+/* Dark mode styles */
+.dark .project-card .footer-separator::before {
+    background-color: #4a5568;
+}
+
 /* Timeline dots with matching transition */
 .dark .timeline-dot {
     transition: background-color 0.3s ease;
