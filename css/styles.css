@@ -7,6 +7,27 @@ body {
     cursor: default;
 }
 
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
+.nav-link {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+}
+
+/* Optional: Adjust letter spacing for better readability */
+p, li {
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+}
+
 /* Interactive elements */
 a, button, .nav-link {
     cursor: pointer;
@@ -192,6 +213,16 @@ a, button, .nav-link {
         width: 100%;
         height: auto;
         object-fit: contain;
+    }
+}
+
+@media (max-width: 1023px) {
+    .text-gray-800.mb-2 a.hover\:text-blue-600:hover {
+        color: #60A5FA;  /* Tailwind's blue-400 */
+    }
+
+    .text-gray-800.mb-2 a.cursor-not-allowed:hover {
+        color: #9CA3AF;  /* Tailwind's gray-400 */
     }
 }
 
@@ -532,6 +563,11 @@ a, button, .nav-link {
         order: 1;
         margin-left: auto;
     }
+}
+
+.text-gray-600 a.hover\:text-blue-600:hover {
+    color: #60A5FA;  /* Tailwind's blue-400 */
+    transition: color 0.3s ease;
 }
 
 /* Make project cards clickable */
