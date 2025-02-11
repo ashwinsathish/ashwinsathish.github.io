@@ -1,35 +1,86 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="images/uav_ris.png" alt="Aerial IRS Project" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            A comprehensive simulation framework for aerial IRS-assisted communication systems, focusing on optimization and performance analysis through Monte Carlo methods.
+            This project presents a simulation and analysis of UAV-assisted communication systems utilizing Intelligent Reflecting Surfaces (IRS) to enhance signal quality. The study assesses system performance through outage probability across various transmit signal-to-noise ratios (SNR) and implements a robust framework for real-time phase adjustment at the IRS.
         </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Implementation</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Channel Modeling: Implemented 3D channel models for UAV-IRS scenarios</li>
-            <li>Optimization Framework: Developed algorithms for phase shift optimization</li>
-            <li>Performance Analysis: Monte Carlo simulations for various scenarios</li>
-            <li>Path Loss Models: Custom models for aerial communication links</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Key Features</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Dynamic UAV Positioning: Real-time optimization of UAV location</li>
-            <li>Phase Configuration: Efficient algorithms for IRS phase shift design</li>
-            <li>Coverage Analysis: Comprehensive study of coverage enhancement</li>
-            <li>Energy Efficiency: Analysis of power consumption and optimization</li>
-        </ul>
+    </div>
 
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Results</h4>
+    <!-- System Model -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">System Model</h4>
+        <div class="w-3/5 mx-auto">
+            <img src="images/uav_ris.png" alt="UAV-IRS System Model" class="rounded-lg">
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            The system comprises three key components: the source (transmitter), the IRS (mounted on a UAV), and the destination (receiver). The implementation incorporates:
+        </p>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Achieved 25% increase in coverage area</li>
-            <li>Reduced power consumption by 30%</li>
-            <li>Enhanced spectral efficiency by 40%</li>
-            <li>Published findings in major conferences</li>
+            <li><strong>Path-loss Model:</strong> Using path-loss exponent of 2.7 for urban environment</li>
+            <li><strong>Nakagami-m Fading:</strong> For modeling multipath scattering effects</li>
+            <li><strong>Inverse Gamma Shadowing:</strong> To represent large-scale variations in received signal power</li>
         </ul>
+    </div>
+
+    <!-- Results -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Performance Analysis</h4>
+        <div class="space-y-4">
+            <div class="w-3/5 mx-auto">
+                <img src="images/op_vs_snr.png" alt="Outage Probability vs SNR" class="rounded-lg">
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+                Analysis of outage probability vs transmit SNR for three different spectral efficiency threshold values (1, 2, and 3 b/s/Hz). Higher spectral efficiency thresholds result in increased outage probabilities at all SNR levels. Optimal phase shift simulations show improved performance compared to standard simulations.
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="w-3/5 mx-auto">
+                <img src="images/op_vs_se.png" alt="Outage Probability vs Spectral Efficiency" class="rounded-lg">
+            </div>
+            <p class="text-gray-600 dark:text-gray-300">
+                At a fixed transmit SNR of 10 dB, outage probability increases linearly with spectral efficiency threshold. This trend is consistent across standard simulations, optimal phase shift simulations, and analytical approximations.
+            </p>
+        </div>
+    </div>
+
+    <!-- UAV Swarm Extension -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">UAV Swarm Modification</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            The original single UAV-IRS simulation code was modified to test multiple UAV scenarios through the following extensions:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li><strong>Data Structure Modification:</strong> Individual channel matrices for G_Sr, G_rD (Nakagami fading) and L_Sr, L_rD (Inverse Gamma shadowing) were converted to cell arrays to handle multiple UAVs</li>
+            <li><strong>Channel Summation:</strong> The end-to-end channel gain was modified to accumulate contributions from each UAV's IRS elements</li>
+            <li><strong>Phase Configuration:</strong> The optimal phase shift computation loop was nested within a swarm loop to calculate phase adjustments for each UAV's reflecting elements</li>
+            <li><strong>Statistical Analysis:</strong> The Laplace transform multiplication and CDF calculation were adjusted to process N*swarm_size elements instead of just N elements</li>
+        </ul>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="w-3/5 mx-auto">
+                <img src="images/op_swarm_2.png" alt="Outage Probability - 2 UAV Swarm" class="rounded-lg">
+            </div>
+            <div class="w-3/5 mx-auto">
+                <img src="images/op_swarm_3.png" alt="Outage Probability - 3 UAV Swarm" class="rounded-lg">
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            Outage probability plots were generated for swarm configurations of 2 and 3 UAVs under the same simulation parameters.
+        </p>
+    </div>
+
+    <div class="pt-6">
+        <hr class="border-t border-gray-200 dark:border-gray-700 mb-6 mx-6">
+        <div class="flex items-center justify-center">
+            <a href="https://github.com/ashwinsathish/UAV-IRS-Communications" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+                <i class="fab fa-github mr-2"></i>
+                <span>View Implementation</span>
+            </a>
+        </div>
     </div>
 </div>

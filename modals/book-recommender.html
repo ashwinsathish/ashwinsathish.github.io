@@ -1,40 +1,79 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="/images/hyperbolic.png" alt="Book Recommender" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            Innovative book recommendation system leveraging advanced machine learning techniques, specifically Poincaré embeddings and graph factorization, to provide sophisticated and contextually rich recommendations.
+            A recommendation system implementation using hyperbolic geometry for analyzing book recommendations. The project implements a content-based recommendation approach utilizing advanced geometric embedding techniques.
         </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Architecture</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Hyperbolic Embeddings: Poincaré ball model implementation</li>
-            <li>Graph Processing: Advanced graph factorization algorithms</li>
-            <li>Data Integration: Comprehensive Library of Congress dataset processing</li>
-            <li>Machine Learning Pipeline: Scalable recommendation generation</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Key Innovations</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Hierarchical Category Handling</li>
-            <li>Non-Euclidean Embedding Techniques</li>
-            <li>Efficient Similarity Computation</li>
-            <li>Dynamic Recommendation Updates</li>
-        </ul>
-
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Performance Characteristics</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Superior Recommendation Accuracy</li>
-            <li>Low Computational Complexity</li>
-            <li>Scalable to Large Datasets</li>
-            <li>Adaptive Learning Mechanisms</li>
-        </ul>
-
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Research Implications</h4>
-        <p class="text-gray-600 dark:text-gray-300">
-            Demonstrates the potential of hyperbolic geometry in machine learning, offering a novel approach to recommendation systems that captures complex, hierarchical relationships more effectively than traditional Euclidean methods.</p>
     </div>
+
+    <!-- Problem Statement -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Approach</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            The project explores alternative embedding techniques for recommendation systems:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Analysis of embedding space representations</li>
+            <li>Investigation of geometric mapping techniques</li>
+            <li>Comparative approach to similarity measurement</li>
+        </ul>
+    </div>
+
+    <!-- System Model -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">System Model</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            Implementation details of the recommendation system:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Dataset: 115 books with descriptions</li>
+            <li>Embedding Model: Poincare Ball Model</li>
+            <li>Dimensionality: 2-dimensional embeddings</li>
+            <li>Feature Extraction: TF-IDF vectorization</li>
+        </ul>
+    </div>
+
+    <!-- Methodology -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Methodology</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            Key computational techniques and processing steps:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>TF-IDF Vectorization of Book Descriptions</li>
+            <li>Graph Network Construction</li>
+            <li>Poincare Embedding Model Training</li>
+            <li>Distance-based Recommendation Generation</li>
+        </ul>
+    </div>
+
+    <!-- Results -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Recommendation Approach</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            Recommendation generation method:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Three recommendation types:
+                <ul class="list-circle pl-5">
+                    <li>Genre-based recommendations</li>
+                    <li>Description-based recommendations</li>
+                    <li>Combined genre and description recommendations</li>
+                </ul>
+            </li>
+            <li>Distance measure for similarity calculation</li>
+            <li>Top 10 most similar book recommendations</li>
+        </ul>
+    </div>
+
+    <div class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex items-center justify-center">
+        <a href="https://github.com/ashwinsathish/Hyperbolic-embeddings" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fab fa-github mr-2"></i>
+            <span>View Implementation</span>
+        </a>
+     </div>
 </div>
-.

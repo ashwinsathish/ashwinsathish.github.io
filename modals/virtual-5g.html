@@ -1,35 +1,149 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="/images/open5gs.png" alt="5G Network Virtualization" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            A comprehensive virtualized 5G testbed implementation using Open5GS and UERANSIM, designed to support multiple use cases in next-generation mobile networks.
+            This project presents a comprehensive virtualized 5G network testbed that enables the development and validation of diverse use cases through network slicing. Built on Open5GS for core network functions and UERANSIM for radio access network simulation, the implementation leverages containerization for component isolation and scalability.
         </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Implementation</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            At its core, the project introduces an API-driven configuration framework that abstracts network complexities, allowing programmatic control over critical network parameters. The framework's effectiveness is demonstrated through three key 5G applications:
+        </p>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Core Network: Deployed Open5GS components including AMF, SMF, UPF, and NRF</li>
-            <li>RAN Simulation: Integrated UERANSIM for gNB and UE simulation</li>
-            <li>Network Slicing: Implemented dynamic slice configuration for different use cases</li>
-            <li>API Development: Created RESTful APIs for network management and monitoring</li>
+            <li>Enhanced Mobile Broadband (eMBB) for high-bandwidth video streaming</li>
+            <li>Ultra-Reliable Low-Latency Communications (URLLC) for remote surgery simulation</li>
+            <li>Massive Machine-Type Communications (mMTC) for large-scale sensor networks</li>
         </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Key Features</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>eMBB Slice: High-bandwidth video streaming with QoS guarantees</li>
-            <li>URLLC Slice: Ultra-reliable communication with <2ms latency</li>
-            <li>mMTC Slice: Support for massive IoT device connectivity</li>
-            <li>Real-time Analytics: Network performance monitoring and visualization</li>
-        </ul>
+    </div>
 
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Results & Impact</h4>
+    <!-- Initial Architecture Overview -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Network Architecture</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            The project implements a containerized 5G network infrastructure that virtualizes the complete protocol stack from core network to RAN. The architecture leverages Open5GS for core network functions and UERANSIM for RAN simulation, integrated through Docker containers.
+        </p>
+        <div class="aspect-w-16 aspect-h-9">
+            <img src="images/docker_arch.png" alt="Containerized Network Architecture" class="object-cover rounded-lg">
+        </div>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Successfully demonstrated network slicing capabilities for all three 5G use cases</li>
-            <li>Achieved 99.999% reliability for URLLC applications</li>
-            <li>Supported connection density of 100,000 devices/km² for mMTC</li>
-            <li>Developed comprehensive documentation and deployment guides</li>
+            <li><strong>Core Network Virtualization:</strong> Implementation of service-based interfaces between network functions including AMF, SMF, UDM, AUSF, UDR, PCF, BSF, NSSF, and NRF</li>
+            <li><strong>Network Segmentation:</strong> Dual bridge networks - internal 5G signaling network (10.10.0.0/24) and public network (10.11.0.0/24) for external data services</li>
+            <li><strong>Subscriber Management:</strong> MongoDB integration for storage of subscriber and network configuration data</li>
         </ul>
+    </div>
+
+    <!-- Gateway Implementation -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Gateway Implementation</h4>
+        <div class="aspect-w-16 aspect-h-9">
+            <img src="images/gateway_flow.png" alt="Gateway Architecture" class="object-cover rounded-lg">
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            A dual-gateway architecture enables stable interaction points for applications while maintaining state during network reconfigurations. The system implements distinct components for UE and UPF sides, each serving specific roles in data transmission.
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li><strong>UE Gateway:</strong> REST API endpoint (http://10.10.0.132:&lt;port&gt;) with multi-threaded design supporting multiple concurrent UE connections</li>
+            <li><strong>UPF Gateway:</strong> UDP server with message queuing system and REST API endpoint (http://10.10.0.112:&lt;port&gt;) for destination services</li>
+            <li><strong>Data Processing:</strong> Chunking mechanism for large data transmission (>65,507 bytes) with sequence management</li>
+            <li><strong>Pipeline Design:</strong> Dual-pipeline approach for JSON sensor data and frame-based streaming content</li>
+        </ul>
+    </div>
+
+    <!-- API Framework -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">API Framework</h4>
+        <div class="aspect-w-16 aspect-h-9">
+            <img src="images/core_components.png" alt="API Core Components" class="object-cover rounded-lg">
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            The API framework provides comprehensive control over the virtualized network environment through six main functional domains.
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li><strong>Configuration Management:</strong> YAML-based interface for PCF parameters and subscriber profile control</li>
+            <li><strong>Session Management:</strong> Dynamic control over:
+                <ul class="ml-4 mt-2 space-y-1">
+                    <li>- IP addressing schemes (IPv4, IPv6, dual-stack)</li>
+                    <li>- QoS profiles and ARP settings</li>
+                    <li>- AMBR parameters with flexible bandwidth units</li>
+                </ul>
+            </li>
+            <li><strong>Network Communication:</strong> Abstracted interfaces for:
+                <ul class="ml-4 mt-2 space-y-1">
+                    <li>- Data transmission through 5G tunnel</li>
+                    <li>- Automatic data type detection</li>
+                    <li>- Large payload management</li>
+                </ul>
+            </li>
+            <li><strong>Process Management:</strong> Container lifecycle control and health monitoring</li>
+            <li><strong>Metrics Collection:</strong> Real-time performance monitoring with:
+                <ul class="ml-4 mt-2 space-y-1">
+                    <li>- Network metrics (latency, throughput, jitter)</li>
+                    <li>- Frame statistics for streaming</li>
+                    <li>- Sensor data measurements</li>
+                </ul>
+            </li>
+            <li><strong>Error Management:</strong> Hierarchical exception system covering:
+                <ul class="ml-4 mt-2 space-y-1">
+                    <li>- Configuration validation</li>
+                    <li>- Communication failures</li>
+                    <li>- Process management errors</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Use Cases Implementation -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">5G Use Case Implementation</h4>
+        
+        <!-- eMBB -->
+        <div class="space-y-4">
+            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Enhanced Mobile Broadband (eMBB)</h5>
+            <img src="images/embb-block.png" alt="eMBB Architecture" class="object-cover rounded-lg">
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                <li>High-bandwidth video streaming implementation with frame-by-frame processing and transmission</li>
+                <li>QoS parameters: 5QI Value 4 (Non-conversational Video), AMBR Downlink 1 Gbps, Uplink 500 Mbps</li>
+                <li>Achieved consistent streaming performance with peak bitrates of 7.43 Mbps for VGA resolution</li>
+            </ul>
+        </div>
+
+        <!-- URLLC -->
+        <div class="space-y-4">
+            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Ultra-Reliable Low-Latency Communications (URLLC)</h5>
+            <img src="images/urllc-block.png" alt="URLLC Architecture" class="object-cover rounded-lg">
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                <li>Remote surgery simulation using Locust framework for load testing and telemetry generation</li>
+                <li>Network configuration: 5QI Value 3, AMBR 20 Kbps (both directions), ARP Level 1</li>
+                <li>Performance metrics: 9.32ms average response time, zero failures, consistent sub-12ms latency</li>
+            </ul>
+        </div>
+
+        <!-- mMTC -->
+        <div class="space-y-4">
+            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Massive Machine Type Communications (mMTC)</h5>
+            <img src="images/mmtc-block.png" alt="mMTC Architecture" class="object-cover rounded-lg">
+            <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+                <li>Industrial sensor network implementation with four distinct sensor categories (Environmental, Industrial, Critical Safety, Status)</li>
+                <li>Network parameters: 5QI Value 82, AMBR 100 Kbps, ARP Level 9</li>
+                <li>Performance: 21ms average latency, 15.99ms jitter, 165.37 Kbps throughput</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <a href="https://github.com/ashwinsathish/Open5GS-API" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fab fa-github mr-2"></i>
+            <span>View Implementation</span>
+        </a>
+        <a href="files/open5gs_docu.pdf" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fas fa-file-pdf mr-2"></i>
+            <span>View Documentation</span>
+        </a>
     </div>
 </div>

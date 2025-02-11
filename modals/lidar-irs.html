@@ -1,40 +1,90 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="/images/lidar.png" alt="LiDAR IRS Project" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            Integration of LiDAR spatial awareness with IRS beamforming optimization for enhanced wireless communication performance.
+            This project presents a spatial-aware IRS-assisted communication system that utilizes LiDAR technology for dynamic beamforming in vehicular networks. The implementation integrates LiDAR's precise spatial mapping capabilities with IRS phase shift optimization to enhance vehicular communications in dynamic urban environments where physical obstructions frequently disrupt signal paths.
         </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Details</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>LiDAR Processing: Point cloud data analysis and environment mapping</li>
-            <li>Beamforming Algorithm: Real-time optimization based on spatial data</li>
-            <li>System Integration: Combined LiDAR and IRS control system</li>
-            <li>Advanced Signal Processing: Spatial awareness-driven beam alignment</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Research Contributions</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>10.5% improvement in achievable communication rates</li>
-            <li>Enhanced spatial awareness capabilities</li>
-            <li>Reduced beam alignment time</li>
-            <li>Innovative cross-domain sensing integration</li>
-        </ul>
+    </div>
 
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Implementation Challenges</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Real-time point cloud processing</li>
-            <li>Dynamic environment modeling</li>
-            <li>Low-latency beam reconfiguration</li>
-            <li>Computational efficiency optimization</li>
-        </ul>
-
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Future Perspectives</h4>
+    <!-- System Model -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">System Model</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="w-3/5 mx-auto">
+                <img src="images/lidar-irs/image.png" alt="System Model" class="rounded-lg">
+            </div>
+            <div class="w-3/5 mx-auto">
+                <img src="images/lidar-irs/coordinates.png" alt="Network Coordinates" class="rounded-lg">
+            </div>
+        </div>
         <p class="text-gray-600 dark:text-gray-300">
-            This research opens new avenues for intelligent wireless communication systems that can dynamically adapt to environmental conditions using advanced sensing technologies.
+            The system implements a three-component architecture with direct and reflected signal paths. The base station uses a 4×2 antenna array positioned at (30, 1.5, 3), while a 256-element IRS array is co-located with the LiDAR at (0, 0, 2). Vehicle position is dynamically tracked at a fixed height of 1m. The channel model incorporates:
         </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Direct path channel (Vehicle ↔ BS): h_d ∈ C^(M×1)</li>
+            <li>IRS-assisted path channels: H_r ∈ C^(M×N) (IRS to BS) and h_v ∈ C^(N×1) (Vehicle to IRS)</li>
+            <li>Combined MIMO channel incorporating Rician fading with optimized phase shifts</li>
+        </ul>
+    </div>
+
+    <!-- LiDAR Integration -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">LiDAR Integration</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="w-3/5 mx-auto">
+                <img src="images/lidar-irs/lidar.png" alt="LiDAR Field of View" class="rounded-lg">
+            </div>
+            <div class="w-3/5 mx-auto">
+                <img src="images/lidar-irs/blockage.png" alt="Blockage Pattern" class="rounded-lg">
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            LiDAR data processing follows the DeepSense 6G dataset specifications with a 16-meter scanning range, 10Hz frequency, and 111ms scanning resolution. Raw point cloud data is collected as D(t) ∈ R^(M×2), combining distance and angular measurements. The system performs temporal aggregation over N_t = 80 scans and implements a sophisticated blockage analysis pipeline that includes:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Moving average temporal analysis over 30 samples to identify blockage periods</li>
+            <li>Angular window analysis across 105° for precise position verification</li>
+            <li>Blockage signature creation through distance-angle matrix transformation</li>
+            <li>Real-time coordinate extraction for vehicle tracking and beamforming optimization</li>
+        </ul>
+        <div class="w-3/5 mx-auto mt-4">
+            <img src="images/lidar-irs/cont_blockage_time.png" alt="Temporal Blockage" class="rounded-lg">
+        </div>
+    </div>
+
+    <!-- Performance Analysis -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Performance Analysis</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="w-3/5 mx-auto">
+                <img src="images/lidar-irs/results.png" alt="Rate Analysis" class="rounded-lg">
+            </div>
+            <div class="w-3/5 mx-auto">
+                <img src="images/lidar-irs/rate_improv.png" alt="Rate Improvement" class="rounded-lg">
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            Performance evaluation demonstrates several key achievements in the system design. Rate analysis shows maximum achievable rates near the IRS position, with an average 10.5% improvement in achievable rates compared to the non-IRS model across all vehicle positions. Array configuration analysis reveals that 16×16 IRS arrays with 2×2 grouping outperform 8×8 full CSI configurations, demonstrating the effectiveness of element grouping strategies in larger arrays.
+        </p>
+        <p class="text-gray-600 dark:text-gray-300">
+            The element grouping study particularly shows how (k×k) grouping effectively reduces (M×M) arrays to (M/k×M/k) configurations while maintaining significant performance advantages. This finding has important implications for practical implementations where computational efficiency must be balanced with performance requirements.
+        </p>
+    </div>
+
+    <div class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between mt-6 space-y-4 md:space-y-0">
+        <a href="https://github.com/ashwinsathish/LiDAR-IRS-Beamforming" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fab fa-github mr-2"></i>
+            <span>View Implementation</span>
+        </a>
+        <a href="#" 
+           class="inline-flex items-center text-gray-400 dark:text-gray-500 cursor-not-allowed"
+           title="In press">
+            <i class="fas fa-file-pdf mr-2"></i>
+            <span>View Paper</span>
+        </a>
     </div>
 </div>

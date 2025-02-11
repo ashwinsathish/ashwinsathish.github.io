@@ -588,3 +588,25 @@ a, button, .nav-link {
 .dark #modal-container .list-disc {
     color: #CBD5E0;
 }
+
+/* Grid layout for results section in modals */
+.dark #modal-container .grid {
+    border-color: rgba(255,255,255,0.1) !important;
+}
+
+/* Add caption styling for results section */
+.dark #modal-container .text-sm.text-center.text-gray-600 {
+    color: #A0AEC0 !important;
+}
+
+/* Ensure proper spacing in result grids */
+#modal-container .grid.grid-cols-1.md\:grid-cols-3 {
+    gap: 1.5rem;
+}
+
+/* Ensure proper image containment in grid */
+#modal-container .grid .mx-auto img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}

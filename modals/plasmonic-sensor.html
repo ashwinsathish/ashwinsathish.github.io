@@ -1,40 +1,109 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="/images/metamaterial.png" alt="Plasmonic Sensor" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            Development of an aluminum-based Surface Plasmon Resonance (SPR) sensor incorporating TiO2 and MoS2 coatings for enhanced cancer cell detection capabilities.
-        </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Sensor Design Methodology</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Material Selection: Cost-effective aluminum base with optimized coatings</li>
-            <li>Metamaterial Engineering: Strategic layer configuration</li>
-            <li>Spectral Analysis: Comprehensive electromagnetic simulation</li>
-            <li>Sensitivity Optimization: Multi-layer dielectric engineering</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Key Performance Metrics</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Sensitivity: 101.2°/Refractive Index Unit (RIU)</li>
-            <li>Detection Limit: Ultra-high sensitivity for biomolecular sensing</li>
-            <li>Spectral Resolution: Enhanced signal-to-noise ratio</li>
-            <li>Cost-Effectiveness: Aluminum-based low-cost fabrication</li>
-        </ul>
-
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Biomedical Applications</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Cancer Cell Detection: Targeted biosensing capabilities</li>
-            <li>Early Diagnosis Potential: High-precision molecular sensing</li>
-            <li>Versatile Material Platform: Adaptable to various biomarkers</li>
-            <li>Minimal Sample Requirements</li>
-        </ul>
-
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Research Impact</h4>
-        <p class="text-gray-600 dark:text-gray-300">
-            Published in Metamaterials XIV, SPIE Photonics, demonstrating significant advancements in plasmonic sensing technology with potential transformative applications in medical diagnostics.
+            This project presents a high-resolution Aluminum-based plasmonic device incorporating metamaterials for cancer cell detection. The sensor uses a metal-dielectric-metal configuration with Al metal and Barium titanate, enhanced by a TiO2 coating and MoS2 binding layer, achieving sensitivity of 101.2°/RIU and figure of merit of 5060 RIU⁻¹.
         </p>
     </div>
+
+   <!-- Device Structure -->
+   <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Device Architecture</h4>
+        <div class="w-3/5 mx-auto">
+            <img src="images/metamaterial/structure.png" alt="Device Structure" class="rounded-lg">
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            The optimized sensor structure comprises layers of:
+        </p>
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-gray-600 dark:text-gray-300">
+                <thead>
+                    <tr class="bg-gray-100 dark:bg-gray-700">
+                        <th class="px-4 py-2 text-center">Material</th>
+                        <th class="px-4 py-2 text-center">Refractive Index</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="px-4 py-2 text-center">CaF2 prism</td><td class="px-4 py-2 text-center">1.426</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Aluminum (Al)</td><td class="px-4 py-2 text-center">0.460 – 14.488i</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Barium Titanate (BTO)</td><td class="px-4 py-2 text-center">2.30</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Metamaterial</td><td class="px-4 py-2 text-center">-3.0984 – 0.001i</td></tr>
+                    <tr><td class="px-4 py-2 text-center">TiO2</td><td class="px-4 py-2 text-center">2.4328</td></tr>
+                    <tr><td class="px-4 py-2 text-center">MoS2 monolayer</td><td class="px-4 py-2 text-center">3.647</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optimization Analysis -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Layer Optimization</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="w-4/5 mx-auto">
+                <img src="images/metamaterial/bto_thickness.png" alt="BTO Thickness Analysis" class="rounded-lg">
+            </div>
+            <div class="w-4/5 mx-auto">
+                <img src="images/metamaterial/meta_thickness.png" alt="Metamaterial Thickness Analysis" class="rounded-lg">
+            </div>
+            <div class="w-4/5 mx-auto">
+                <img src="images/metamaterial/tio2_thickness.png" alt="TiO2 Thickness Analysis" class="rounded-lg">
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            Optimized layer thicknesses: BTO (5nm), Metamaterial (160nm), and TiO2 (2nm) provide maximum Figure of Merit and Quality Factor for the sensor structure.
+        </p>
+        
+        <!-- Reflectivity Curve -->
+        <div class="w-3/5 mx-auto mt-6">
+            <img src="images/metamaterial/reflectivity.png" alt="SPR Curve for Optimized Structure" class="rounded-lg">
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            The SPR curve for the optimized structure (S8) demonstrates a sharp resonance dip and clear shift in resonance angle for different refractive indices, indicating high sensitivity and resolution.
+        </p>
+    </div>
+
+    <!-- Cancer Detection section with centered table entries -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Cancer Cell Detection</h4>
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-gray-600 dark:text-gray-300">
+                <thead>
+                    <tr class="bg-gray-100 dark:bg-gray-700">
+                        <th class="px-4 py-2 text-center">Cancer Type</th>
+                        <th class="px-4 py-2 text-center">Cell Name</th>
+                        <th class="px-4 py-2 text-center">Healthy Cell RI</th>
+                        <th class="px-4 py-2 text-center">Cancerous Cell RI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="px-4 py-2 text-center">Cervical</td><td class="px-4 py-2 text-center">HeLa</td><td class="px-4 py-2 text-center">1.368</td><td class="px-4 py-2 text-center">1.392</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Blood</td><td class="px-4 py-2 text-center">Jurkat</td><td class="px-4 py-2 text-center">1.376</td><td class="px-4 py-2 text-center">1.390</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Adrenal Gland</td><td class="px-4 py-2 text-center">PC12</td><td class="px-4 py-2 text-center">1.381</td><td class="px-4 py-2 text-center">1.395</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Breast</td><td class="px-4 py-2 text-center">MDA-MB-231</td><td class="px-4 py-2 text-center">1.385</td><td class="px-4 py-2 text-center">1.399</td></tr>
+                    <tr><td class="px-4 py-2 text-center">Breast</td><td class="px-4 py-2 text-center">MCF-7</td><td class="px-4 py-2 text-center">1.385</td><td class="px-4 py-2 text-center">1.401</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="w-3/5 mx-auto mt-4">
+            <img src="images/metamaterial/cancer_detection.png" alt="Cancer Detection Results" class="rounded-lg">
+        </div>
+    </div>
+
+    <div class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <a href="https://github.com/ashwinsathish/Metamaterial-SPR-Biosensor" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fab fa-github mr-2"></i>
+            <span>View Implementation</span>
+        </a>
+        <a href="https://doi.org/10.1117/12.3021474" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fas fa-file-pdf mr-2"></i>
+            <span>View Poster</span>
+        </a>
+     </div>
 </div>

@@ -1,35 +1,83 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="/images/phc.png" alt="Photonic Crystal Project" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            Development of a highly sensitive photonic crystal-based SPR sensor utilizing silicon and platinum diselenide stacks for enhanced biosensing capabilities.
+            This project presents a surface plasmon resonance (SPR) sensor based on a 1D photonic crystal design, utilizing aluminium as the plasmonic metal stacked with silicon and platinum diselenide layers. The implementation demonstrates high sensitivity and figure of merit values, making it a promising solution for biosensing applications.
         </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Design & Implementation</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Material Stack: Optimized Si-PtSe2 layer configuration</li>
-            <li>Simulation Environment: COMSOL Multiphysics modeling</li>
-            <li>Parameter Optimization: Thickness and material property tuning</li>
-            <li>Sensitivity Analysis: Comprehensive performance evaluation</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Key Achievements</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Achieved sensitivity of 101.1°/RIU</li>
-            <li>Enhanced light-matter interaction</li>
-            <li>Improved detection limit for biosensing</li>
-            <li>Cost-effective material selection</li>
-        </ul>
+    </div>
 
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Methodology</h4>
+    <!-- System Design -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Sensor Architecture</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="h-96">
+                <img src="images/phc-spr/structure.jpg" alt="Sensor Structure" class="rounded-lg w-full h-full object-contain bg-white dark:bg-gray-600">
+            </div>
+            <div class="h-96">
+                <img src="images/phc-spr/reflectivity.png" alt="Reflectivity Curves" class="rounded-lg w-full h-full object-contain bg-white dark:bg-gray-600">
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            The sensor structure comprises an aluminum layer (30nm) over a CaF2 prism, followed by three stacks of silicon (40nm) and platinum diselenide (4nm), with a 2500nm thick analyte layer. Key design features include:
+        </p>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Comprehensive spectral analysis of layered structures</li>
-            <li>Advanced computational electromagnetic modeling</li>
-            <li>Multi-parameter optimization techniques</li>
-            <li>Experimental validation strategies</li>
+            <li><strong>Aluminum:</strong> Selected for low cost, narrow linewidth, and maximum penetration depth at higher wavelengths</li>
+            <li><strong>Silicon:</strong> Chosen as low RI material for straightforward fabrication and photonic integration</li>
+            <li><strong>Platinum Diselenide:</strong> Utilized for high carrier mobility (3000 cm²V⁻¹s⁻¹), tunable bandgap, and chemical inertness</li>
         </ul>
     </div>
+
+    <!-- Optimization Analysis -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Performance Optimization</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="w-full mx-auto">
+                <img src="images/phc-spr/si_thickness.png" alt="Silicon Thickness Analysis" class="rounded-lg w-full h-auto">
+            </div>
+            <div class="w-full mx-auto">
+                <img src="images/phc-spr/ptse2_thickness.png" alt="PtSe2 Thickness Analysis" class="rounded-lg w-full h-auto">
+            </div>
+            <div class="w-full mx-auto">
+                <img src="images/phc-spr/stack_analysis.png" alt="Stack Number Analysis" class="rounded-lg w-full h-auto">
+            </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-300">
+            Layer optimization was performed through systematic analysis of component thicknesses and stack numbers:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Silicon layer thickness optimized to 40nm, balancing FWHM and minimum reflectivity</li>
+            <li>PtSe2 thickness of 4nm achieved highest sensitivity and figure of merit</li>
+            <li>Three Si-PtSe2 stacks provided optimal interaction length for guided modes</li>
+        </ul>
+    </div>
+
+    <!-- Results -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Key Results</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            The optimized sensor structure, operating at 1550nm wavelength, demonstrated exceptional performance metrics:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Sensitivity: 101.1°/RIU</li>
+            <li>Figure of Merit: 1531.82 RIU⁻¹</li>
+            <li>Effective operation in near-infrared spectrum, ideal for biological tissue analysis</li>
+        </ul>
+    </div>
+
+    <div class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <a href="https://github.com/ashwinsathish/PhC-SPR-Biosensor" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+            <i class="fab fa-github mr-2"></i>
+            <span>View Implementation</span>
+        </a>
+        <a href="#" 
+           class="inline-flex items-center text-gray-400 dark:text-gray-500 cursor-not-allowed"
+           title="In press">
+            <i class="fas fa-file-pdf mr-2"></i>
+            <span>View Poster</span>
+        </a>
+     </div>
 </div>

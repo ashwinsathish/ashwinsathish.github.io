@@ -164,18 +164,20 @@ document.addEventListener('DOMContentLoaded', function() {
         'lidar-irs': 'modals/lidar-irs.html',
         'plasmonic-sensor': 'modals/plasmonic-sensor.html',
         'fdtd-modelling': 'modals/fdtd-modelling.html',
-        'book-recommender': 'modals/book-recommender.html'
+        'book-recommender': 'modals/book-recommender.html',
+        'gen-ai-outfit': 'modals/gen-ai-outfit.html'
     };
 
     // Project details for modal titles
     const projectDetails = {
         'virtual-5g': { title: 'Virtual 5G Testbeds' },
         'aerial-irs': { title: 'Aerial IRS-assisted Wireless Communications' },
-        'photonic-crystal': { title: 'Photonic Crystal-based Biosensors' },
+        'photonic-crystal': { title: 'Photonic Crystal-based SPR Sensor' },
         'lidar-irs': { title: 'LiDAR-enabled IRS Beamforming' },
-        'plasmonic-sensor': { title: 'Aluminum-based Plasmonic Sensor' },
+        'plasmonic-sensor': { title: 'Metamaterial-based Plasmonic Biosensor' },
         'fdtd-modelling': { title: 'FDTD Modelling for Non-destructive Testing' },
-        'book-recommender': { title: 'Hyperbolic Book Recommender System' }
+        'book-recommender': { title: 'Hyperbolic Book Recommender System' },
+        'gen-ai-outfit': { title: 'GenAI Outfit Recommender' }
     };
 
     // Function to load modal content

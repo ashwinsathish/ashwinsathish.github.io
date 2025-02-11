@@ -1,40 +1,128 @@
-<div class="space-y-6">
-    <div class="aspect-w-16 aspect-h-9">
-        <img src="/images/fdtd.png" alt="FDTD Modelling" class="object-cover rounded-lg">
-    </div>
+<div class="space-y-8">
+    <!-- Project Overview -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            Advanced Finite-Difference Time-Domain (FDTD) simulation for non-destructive testing of concrete-rebar structures using sophisticated electromagnetic modeling techniques.
+            Comprehensive investigation of electromagnetic wave propagation through inhomogeneous concrete-rebar structures using Finite-Difference Time-Domain (FDTD) simulation. The primary goal was to quantify and analyze signal delay and wave characteristics across different corrosion levels, providing insights into material degradation and wave interaction mechanisms.
         </p>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Technical Approach</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>3D FDTD Implementation: Custom high-resolution simulation environment</li>
-            <li>Boundary Conditions: Advanced Mur's 2nd order implementation</li>
-            <li>Material Modeling: Precise concrete-rebar electromagnetic properties</li>
-            <li>Staircase Approximation: Improved geometric representation</li>
-        </ul>
-        
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Computational Techniques</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Numerical Dispersion Control: Minimizing computational artifacts</li>
-            <li>Adaptive Mesh Refinement: Enhanced resolution in critical areas</li>
-            <li>Parallel Computing Optimization</li>
-            <li>Multi-physics Simulation Integration</li>
-        </ul>
+    </div>
 
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Infrastructure Monitoring Applications</h4>
-        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Structural Health Monitoring: Early defect detection</li>
-            <li>Corrosion Assessment: Non-invasive inspection</li>
-            <li>Material Integrity Evaluation</li>
-            <li>Real-time Damage Prediction</li>
-        </ul>
-
-        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Research Significance</h4>
+    <!-- Simulation Methodology -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Simulation</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            Pioneering approach to infrastructure assessment using advanced electromagnetic simulation, providing unprecedented insights into material condition and structural integrity without physical intervention.
+            The simulation employed a multi-dimensional FDTD approach, systematically analyzing electromagnetic wave propagation through:
         </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>1D scenario: Linear concrete medium with rust section</li>
+            <li>2D scenario: Planar concrete-rebar-rust cross-section</li>
+            <li>3D scenario: Cuboidal rebar embedded in concrete block</li>
+        </ul>
+    </div>
+
+    <!-- System Model -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">System Model</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            Detailed electromagnetic model of concrete-rebar system with precise material and geometric characterization:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Block Dimensions: 10cm x 10cm x 10cm</li>
+            <li>Rebar Material: Steel with varying corrosion levels (0% to 30%)</li>
+            <li>Material Properties:
+                <ul class="list-circle pl-5">
+                    <li>Concrete: Relative permittivity ϵ_r = 4 - j0.06</li>
+                    <li>Rust: Relative permittivity ϵ_r = 10 - j0.86</li>
+                </ul>
+            </li>
+        </ul>
+        <div class="mt-4 flex justify-center">
+            <div class="max-w-xl">
+                <img src="/images/rs-6-rr-3-middle-z-slice.png" alt="Middle Z Slice View (rs=6, rr=3)" class="rounded-lg shadow-md w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2 text-center">Middle Z Slice View of Concrete-Rebar System (rs=6, rr=3)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Methodology -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Methodology</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            Computational techniques used to simulate electromagnetic wave propagation were:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Spatial and Temporal Interleaving for Numerical Stability</li>
+            <li>Mur's 2nd Order Absorbing Boundary Conditions</li>
+            <li>Sine-modulated Gaussian Pulse Excitation (7.5 GHz)</li>
+            <li>Fast Fourier Transform (FFT) Analysis</li>
+        </ul>
+        <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="max-w-xl">
+                <img src="/images/2d-ez-simulation-surface.png" alt="2D Ez Simulation Surface" class="rounded-lg shadow-md w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2">2D Ez Simulation Surface Progression</p>
+            </div>
+            <div class="max-w-xl">
+                <img src="/images/3d-ez-simulation.png" alt="3D Ez Simulation" class="rounded-lg shadow-md w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2">3D Ez Electromagnetic Simulation</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Results</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            Comprehensive analysis of electromagnetic wave propagation and signal characteristics across different corrosion levels:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>1D Simulation: Direct correlation between rust layer thickness and signal delay</li>
+            <li>2D Simulation: Complex wave interactions and frequency domain characteristics</li>
+            <li>3D Simulation: Exponential increase in signal delay with corrosion progression</li>
+        </ul>
+        <p class="text-gray-600 dark:text-gray-300">
+            Results below depict the results for 3D simulations:
+        </p>
+        <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="max-w-xl">
+                <img src="/images/output-waveform-corrosion.png" alt="Output Waveform for Different Corrosion Levels" class="rounded-lg shadow-md w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2">Output Waveform at Different Corrosion Levels</p>
+            </div>
+            <div class="max-w-xl">
+                <img src="/images/time-delay-vs-corrosion.png" alt="Time Delay vs Corrosion Percentage" class="rounded-lg shadow-md w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2">Asymptotic Plot of Time Delay vs Corrosion Percentage</p>
+            </div>
+        </div>
+        <div class="mt-4 flex justify-center">
+            <div class="max-w-xl">
+                <img src="/images/fft-results-rs-6-rr-3.png" alt="FFT Results for rs=6, rr=3" class="rounded-lg shadow-md w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2 text-center">Frequency Domain Analysis (FFT) for rs=6, rr=3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conclusions -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Conclusions</h4>
+        <p class="text-gray-600 dark:text-gray-300">
+            The study demonstrated the effectiveness of FDTD algorithms in simulating electromagnetic wave propagation through inhomogeneous lossy media. Key findings include:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Quantitative relationship between corrosion levels and signal propagation</li>
+            <li>Detailed insights into wave interactions in multi-layered media</li>
+            <li>Potential applications in non-destructive testing and infrastructure monitoring</li>
+        </ul>
+    </div>
+
+    <div class="pt-6">
+        <hr class="border-t border-gray-200 dark:border-gray-700 mb-6 mx-6">
+        <div class="flex items-center justify-center">
+            <a href="https://github.com/ashwinsathish/FDTD-analysis" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+                <i class="fab fa-github mr-2"></i>
+                <span>View Implementation</span>
+            </a>
+        </div>
     </div>
 </div>
