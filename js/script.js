@@ -194,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to open modal
     async function openModal(projectId) {
         try {
             // Get the project details object
@@ -211,6 +210,9 @@ document.addEventListener('DOMContentLoaded', function() {
             modalContainer.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             
+            // Hide back to top button when modal is open
+            document.getElementById('backToTop').classList.remove('visible');
+            
             // Animation
             modalContainer.animate([
                 { opacity: 0, transform: 'scale(0.95)' },
@@ -224,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to close modal
+    // In your closeModal function:
     function closeModal() {
         modalContainer.animate([
             { opacity: 1, transform: 'scale(1)' },
@@ -235,6 +237,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }).onfinish = () => {
             modalContainer.classList.add('hidden');
             document.body.style.overflow = '';
+            
+            // Check scroll position and show back to top button if needed
+            if (window.pageYOffset > 200) {
+                document.getElementById('backToTop').classList.add('visible');
+            }
         };
     }
 
