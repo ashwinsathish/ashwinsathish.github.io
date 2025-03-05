@@ -151,6 +151,15 @@ a, button, .nav-link {
     background-color: hsl(49, 85%, 63%) !important;
 }
 
+/* HPE card hover colors in dark mode */
+.dark .group:hover .text-gray-600.group-hover\:text-green-600 {
+    color: #48BB78 !important; /* Tailwind's green-500 */
+}
+
+.dark .group:hover .timeline-dot.group-hover\:bg-green-600 {
+    background-color: #48BB78 !important; /* Tailwind's green-500 */
+}
+
 /* Experience cards with slower transitions */
 .dark .bg-white.rounded-lg.shadow-md.p-5.group-hover\:shadow-lg {
     background-color: #2d3748 !important;
