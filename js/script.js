@@ -3,85 +3,104 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.getElementById('mobile-menu-button');
     const mobileMenu = document.querySelector('.mobile-menu');
     
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('open');
-        mobileMenu.classList.toggle('open');
-    });
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            }
+        });
+    }
 
     // Add smooth scroll to all navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', smoothScroll);
     });
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.mobile-menu .nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('open');
-            mobileMenu.classList.remove('open');
-        });
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-            hamburger.classList.remove('open');
-            mobileMenu.classList.remove('open');
-        }
-    });
-
     // Back to top functionality
     const backToTopButton = document.getElementById('backToTop');
 
-    const toggleBackToTopButton = () => {
-        if (window.pageYOffset > 200) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    };
+    if (backToTopButton) {
+        const toggleBackToTopButton = () => {
+            if (window.pageYOffset > 200) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        };
 
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', () => {
-        requestAnimationFrame(toggleBackToTopButton);
-    });
-
-    // Smooth scroll to top
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(toggleBackToTopButton);
         });
-    });
+
+        // Smooth scroll to top
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 
     // Copy citation buttons
     const copyButtons = document.querySelectorAll('.copy-citation-btn');
     
     copyButtons.forEach(button => {
-        button.addEventListener('click', () => {
+        button.addEventListener('click', async () => {
             const citation = button.getAttribute('data-citation');
+            if (!citation) return;
             
-            // Create a temporary textarea to copy the text
-            const tempTextArea = document.createElement('textarea');
-            tempTextArea.value = citation;
-            document.body.appendChild(tempTextArea);
-            
-            // Select and copy the text
-            tempTextArea.select();
-            document.execCommand('copy');
-            
-            // Remove the temporary textarea
-            document.body.removeChild(tempTextArea);
-            
-            // Provide visual feedback
-            button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
-            
-            // Reset the button after 2 seconds
-            setTimeout(() => {
-                button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>`;
-            }, 2000);
+            try {
+                // Use modern Clipboard API
+                await navigator.clipboard.writeText(citation);
+                
+                // Store original HTML for restoration
+                const originalHTML = button.innerHTML;
+                
+                // Provide visual feedback
+                button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                
+                // Reset the button after 2 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalHTML;
+                }, 2000);
+            } catch (err) {
+                // Fallback for browsers that don't support Clipboard API
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = citation;
+                tempTextArea.style.position = 'fixed';
+                tempTextArea.style.opacity = '0';
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    const originalHTML = button.innerHTML;
+                    button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                    setTimeout(() => {
+                        button.innerHTML = originalHTML;
+                    }, 2000);
+                } catch (fallbackErr) {
+                    console.error('Failed to copy citation:', fallbackErr);
+                } finally {
+                    document.body.removeChild(tempTextArea);
+                }
+            }
         });
     });
 
@@ -91,19 +110,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
         const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
         const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 
         // Function to update icons based on theme
         function updateIcons(isDark) {
-            if (isDark) {
-                themeToggleLightIcon.classList.remove('hidden');
-                themeToggleDarkIcon.classList.add('hidden');
-                themeToggleLightIconMobile.classList.remove('hidden');
-                themeToggleDarkIconMobile.classList.add('hidden');
-            } else {
-                themeToggleDarkIcon.classList.remove('hidden');
-                themeToggleLightIcon.classList.add('hidden');
-                themeToggleDarkIconMobile.classList.remove('hidden');
-                themeToggleLightIconMobile.classList.add('hidden');
+            if (themeToggleLightIcon && themeToggleDarkIcon && themeToggleLightIconMobile && themeToggleDarkIconMobile) {
+                if (isDark) {
+                    themeToggleLightIcon.classList.remove('hidden');
+                    themeToggleDarkIcon.classList.add('hidden');
+                    themeToggleLightIconMobile.classList.remove('hidden');
+                    themeToggleDarkIconMobile.classList.add('hidden');
+                } else {
+                    themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
+                    themeToggleDarkIconMobile.classList.remove('hidden');
+                    themeToggleLightIconMobile.classList.add('hidden');
+                }
             }
         }
 
@@ -142,8 +165,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Add click handlers to both buttons
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
     }
 
     // Call the function when the page loads
@@ -155,6 +182,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalTitle = document.getElementById('modal-title');
     const modalContent = document.getElementById('modal-content');
     const closeButtons = document.querySelectorAll('.modal-close-btn');
+    
+    // Check if modal elements exist before proceeding
+    if (!modalContainer || !modalBackdrop || !modalTitle || !modalContent) {
+        console.warn('Modal elements not found. Modal functionality may not work correctly.');
+    }
     
     // Mapping of project IDs to their corresponding modal HTML file paths
     const projectModalPaths = {
@@ -195,6 +227,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     async function openModal(projectId) {
+        if (!modalContainer || !modalTitle || !modalContent) {
+            console.error('Modal elements not found');
+            return;
+        }
+        
         try {
             // Get the project details object
             const project = projectDetails[projectId];
@@ -211,7 +248,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'hidden';
             
             // Hide back to top button when modal is open
-            document.getElementById('backToTop').classList.remove('visible');
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                backToTopBtn.classList.remove('visible');
+            }
             
             // Animation
             modalContainer.animate([
