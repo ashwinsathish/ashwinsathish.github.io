@@ -1,10 +1,10 @@
 // Mobile menu toggle with animation
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('mobile-menu-button');
     const mobileMenu = document.querySelector('.mobile-menu');
-    
+
     if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             hamburger.classList.toggle('open');
             mobileMenu.classList.toggle('open');
         });
@@ -59,22 +59,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Copy citation buttons
     const copyButtons = document.querySelectorAll('.copy-citation-btn');
-    
+
     copyButtons.forEach(button => {
         button.addEventListener('click', async () => {
             const citation = button.getAttribute('data-citation');
             if (!citation) return;
-            
+
             try {
                 // Use modern Clipboard API
                 await navigator.clipboard.writeText(citation);
-                
+
                 // Store original HTML for restoration
                 const originalHTML = button.innerHTML;
-                
+
                 // Provide visual feedback
                 button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
-                
+
                 // Reset the button after 2 seconds
                 setTimeout(() => {
                     button.innerHTML = originalHTML;
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tempTextArea.style.opacity = '0';
                 document.body.appendChild(tempTextArea);
                 tempTextArea.select();
-                
+
                 try {
                     document.execCommand('copy');
                     const originalHTML = button.innerHTML;
@@ -182,12 +182,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalTitle = document.getElementById('modal-title');
     const modalContent = document.getElementById('modal-content');
     const closeButtons = document.querySelectorAll('.modal-close-btn');
-    
+
     // Check if modal elements exist before proceeding
     if (!modalContainer || !modalBackdrop || !modalTitle || !modalContent) {
         console.warn('Modal elements not found. Modal functionality may not work correctly.');
     }
-    
+
     // Mapping of project IDs to their corresponding modal HTML file paths
     const projectModalPaths = {
         'virtual-5g': 'modals/virtual-5g.html',
@@ -231,28 +231,28 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Modal elements not found');
             return;
         }
-        
+
         try {
             // Get the project details object
             const project = projectDetails[projectId];
-            
+
             // Load modal content
             const modalHtml = await loadModalContent(projectId);
-            
+
             // Set modal content
             modalTitle.textContent = project ? project.title : 'Project Details';
             modalContent.innerHTML = modalHtml;
-            
+
             // Show modal
             modalContainer.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-            
+
             // Hide back to top button when modal is open
             const backToTopBtn = document.getElementById('backToTop');
             if (backToTopBtn) {
                 backToTopBtn.classList.remove('visible');
             }
-            
+
             // Animation
             modalContainer.animate([
                 { opacity: 0, transform: 'scale(0.95)' },
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }).onfinish = () => {
             modalContainer.classList.add('hidden');
             document.body.style.overflow = '';
-            
+
             // Check scroll position and show back to top button if needed
             if (window.pageYOffset > 200) {
                 document.getElementById('backToTop').classList.add('visible');
@@ -303,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.project-card').forEach(card => {
         const projectId = card.dataset.projectId;
         const links = card.querySelectorAll('a');
-        
+
         card.addEventListener('click', (e) => {
             // Check if click was on or inside a link
             let clickedLink = false;
@@ -312,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     clickedLink = true;
                 }
             });
-            
+
             if (!clickedLink) {
                 openModal(projectId);
             }
@@ -325,7 +325,7 @@ function smoothScroll(e) {
     e.preventDefault();
     const targetId = this.getAttribute("href");
     if (targetId === "#") return;
-    
+
     const targetElement = document.querySelector(targetId);
     const headerOffset = 60;
     const elementPosition = targetElement.getBoundingClientRect().top;
@@ -334,6 +334,6 @@ function smoothScroll(e) {
     window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
-        duration: 1500  
+        duration: 1500
     });
 }
