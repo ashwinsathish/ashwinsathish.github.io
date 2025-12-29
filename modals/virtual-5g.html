@@ -4,10 +4,15 @@
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Overview</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            This project presents a comprehensive virtualized 5G network testbed that enables the development and validation of diverse use cases through network slicing. Built on Open5GS for core network functions and UERANSIM for radio access network simulation, the implementation leverages containerization for component isolation and scalability.
+            This project presents a virtualized 5G network testbed that enables development and validation of diverse
+            use cases through network slicing. Built on Open5GS for core network functions and UERANSIM for radio access
+            network (RAN) simulation, the implementation leverages containerization for component isolation and
+            scalability.
         </p>
         <p class="text-gray-600 dark:text-gray-300">
-            At its core, the project introduces an API-driven configuration framework that abstracts network complexities, allowing programmatic control over critical network parameters. The framework's effectiveness is demonstrated through three key 5G applications:
+            At its core, the testbed introduces an API framework that abstracts network complexities. This allows for
+            programmatic control over critical network parameters. The framework's effectiveness is demonstrated through
+            three key 5G applications:
         </p>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
             <li>Enhanced Mobile Broadband (eMBB) for high-bandwidth video streaming</li>
@@ -20,15 +25,20 @@
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">Network Architecture</h4>
         <p class="text-gray-600 dark:text-gray-300">
-            The project implements a containerized 5G network infrastructure that virtualizes the complete protocol stack from core network to RAN. The architecture leverages Open5GS for core network functions and UERANSIM for RAN simulation, integrated through Docker containers.
+            The project implements a containerized 5G network infrastructure that virtualizes the complete protocol
+            stack from core network to RAN. The architecture uses Open5GS for core network functions and UERANSIM for
+            RAN simulation, which are integrated through Docker containers.
         </p>
         <div class="aspect-w-16 aspect-h-9">
             <img src="images/docker_arch.png" alt="Containerized Network Architecture" class="object-cover rounded-lg">
         </div>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li><strong>Core Network Virtualization:</strong> Implementation of service-based interfaces between network functions including AMF, SMF, UDM, AUSF, UDR, PCF, BSF, NSSF, and NRF</li>
-            <li><strong>Network Segmentation:</strong> Dual bridge networks - internal 5G signaling network (10.10.0.0/24) and public network (10.11.0.0/24) for external data services</li>
-            <li><strong>Subscriber Management:</strong> MongoDB integration for storage of subscriber and network configuration data</li>
+            <li><strong>Core Network Virtualization:</strong> Implementation of service-based interfaces between network
+                functions including AMF, SMF, UDM, AUSF, UDR, PCF, BSF, NSSF, and NRF</li>
+            <li><strong>Network Segmentation:</strong> Dual bridge networks - internal 5G signaling network
+                (10.10.0.0/24) and public network (10.11.0.0/24) for external data services</li>
+            <li><strong>Subscriber Management:</strong> MongoDB integration for storage of subscriber and network
+                configuration data</li>
         </ul>
     </div>
 
@@ -39,13 +49,19 @@
             <img src="images/gateway_flow.png" alt="Gateway Architecture" class="object-cover rounded-lg">
         </div>
         <p class="text-gray-600 dark:text-gray-300">
-            A dual-gateway architecture enables stable interaction points for applications while maintaining state during network reconfigurations. The system implements distinct components for UE and UPF sides, each serving specific roles in data transmission.
+            A dual-gateway architecture enables stable interaction points for applications while maintaining state
+            during network reconfigurations. The system implements distinct components for UE and UPF sides, each
+            serving specific roles in data transmission.
         </p>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li><strong>UE Gateway:</strong> REST API endpoint (http://10.10.0.132:&lt;port&gt;) with multi-threaded design supporting multiple concurrent UE connections</li>
-            <li><strong>UPF Gateway:</strong> UDP server with message queuing system and REST API endpoint (http://10.10.0.112:&lt;port&gt;) for destination services</li>
-            <li><strong>Data Processing:</strong> Chunking mechanism for large data transmission (>65,507 bytes) with sequence management</li>
-            <li><strong>Pipeline Design:</strong> Dual-pipeline approach for JSON sensor data and frame-based streaming content</li>
+            <li><strong>UE Gateway:</strong> REST API endpoint (http://10.10.0.132:&lt;port&gt;) with multi-threaded
+                design supporting multiple concurrent UE connections</li>
+            <li><strong>UPF Gateway:</strong> UDP server with message queuing system and REST API endpoint
+                (http://10.10.0.112:&lt;port&gt;) for destination services</li>
+            <li><strong>Data Processing:</strong> Chunking mechanism for large data transmission (>65,507 bytes) with
+                sequence management</li>
+            <li><strong>Pipeline Design:</strong> Dual-pipeline approach for JSON sensor data and frame-based streaming
+                content</li>
         </ul>
     </div>
 
@@ -56,10 +72,12 @@
             <img src="images/core_components.png" alt="API Core Components" class="object-cover rounded-lg">
         </div>
         <p class="text-gray-600 dark:text-gray-300">
-            The API framework provides comprehensive control over the virtualized network environment through six main functional domains.
+            The API framework provides comprehensive control over the virtualized network environment through six main
+            functional domains.
         </p>
         <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-            <li><strong>Configuration Management:</strong> YAML-based interface for PCF parameters and subscriber profile control</li>
+            <li><strong>Configuration Management:</strong> YAML-based interface for PCF parameters and subscriber
+                profile control</li>
             <li><strong>Session Management:</strong> Dynamic control over:
                 <ul class="ml-4 mt-2 space-y-1">
                     <li>- IP addressing schemes (IPv4, IPv6, dual-stack)</li>
@@ -95,7 +113,7 @@
     <!-- Use Cases Implementation -->
     <div class="space-y-4">
         <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200">5G Use Case Implementation</h4>
-        
+
         <!-- eMBB -->
         <div class="space-y-4">
             <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Enhanced Mobile Broadband (eMBB)</h5>
@@ -109,7 +127,8 @@
 
         <!-- URLLC -->
         <div class="space-y-4">
-            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Ultra-Reliable Low-Latency Communications (URLLC)</h5>
+            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Ultra-Reliable Low-Latency Communications
+                (URLLC)</h5>
             <img src="images/urllc-block.png" alt="URLLC Architecture" class="object-cover rounded-lg">
             <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
                 <li>Remote surgery simulation using Locust framework for load testing and telemetry generation</li>
@@ -120,28 +139,27 @@
 
         <!-- mMTC -->
         <div class="space-y-4">
-            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Massive Machine Type Communications (mMTC)</h5>
+            <h5 class="text-lg font-medium text-gray-700 dark:text-gray-300">Massive Machine Type Communications (mMTC)
+            </h5>
             <img src="images/mmtc-block.png" alt="mMTC Architecture" class="object-cover rounded-lg">
             <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                <li>Industrial sensor network implementation with four distinct sensor categories (Environmental, Industrial, Critical Safety, Status)</li>
+                <li>Industrial sensor network implementation with four distinct sensor categories (Environmental,
+                    Industrial, Critical Safety, Status)</li>
                 <li>Network parameters: 5QI Value 82, AMBR 100 Kbps, ARP Level 9</li>
                 <li>Performance: 21ms average latency, 15.99ms jitter, 165.37 Kbps throughput</li>
             </ul>
         </div>
     </div>
 
-    <div class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-        <a href="https://github.com/ashwinsathish/Open5GS-API" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+    <div
+        class="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <a href="https://github.com/ashwinsathish/Open5GS-API" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
             <i class="fab fa-github mr-2"></i>
             <span>View Implementation</span>
         </a>
-        <a href="files/open5gs_docu.pdf" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
+        <a href="files/open5gs_docu.pdf" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center text-blue-600 hover:text-purple-700 dark:text-[#C4B5FD] dark:hover:text-[#DDD6FE] transition-colors duration-200">
             <i class="fas fa-file-pdf mr-2"></i>
             <span>View Documentation</span>
         </a>
