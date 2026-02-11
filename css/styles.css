@@ -122,6 +122,16 @@ button,
 
 /* Default/Light mode cyan styles */
 /* Default/Light mode teal styles */
+.hover-teal:hover {
+    color: #0d9488 !important;
+    /* teal-600 */
+}
+
+.dark .hover-teal:hover {
+    color: #2dd4bf !important;
+    /* teal-400 */
+}
+
 .group:hover .group-hover\:text-cyan-600 {
     color: #0891b2 !important;
 }
