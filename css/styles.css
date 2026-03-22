@@ -840,6 +840,26 @@ button,
     animation: drawTick 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* Profile Icon Physical Emboss */
+.profile-icon-link {
+    display: inline-block;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.profile-icon-link:hover {
+    transform: translateY(-3px) scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.dark .profile-icon-link:hover {
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.15));
+}
+
+.profile-icon-link:active {
+    transform: translateY(-1px) scale(0.95);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
 .text-gray-600 a.hover\:text-blue-600:hover {
     color: #60A5FA;
     /* Tailwind's blue-400 */
