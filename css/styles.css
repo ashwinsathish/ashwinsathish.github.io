@@ -843,7 +843,7 @@ button,
 /* Profile Icon Physical Emboss */
 .profile-icon-link {
     display: inline-block;
-    transition: transform 0.4s ease, filter 0.4s ease, color 0.4s ease;
+    transition: transform 0.4s ease, filter 0.4s ease, color 0.4s ease !important;
 }
 
 .profile-icon-link:hover {
