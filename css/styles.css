@@ -689,72 +689,49 @@ button,
    Link box button (blue default)
    ======================================== */
 .pub-link-box {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.375rem;
     padding: 0.375rem 0.85rem;
-    border: 1.5px solid #3B82F6;
     border-radius: 0.5rem;
     color: #3B82F6;
+    background-color: rgba(59, 130, 246, 0.1); /* blue-500 at 10% */
     font-size: 0.8125rem;
     font-weight: 500;
     font-family: 'Raleway', sans-serif;
     white-space: nowrap;
-    overflow: hidden;
     text-decoration: none;
-    transition: color 0.35s ease, border-color 0.35s ease, transform 0.1s ease;
-    z-index: 0;
+    transition: all 0.2s ease;
+}
+
+.pub-link-box:hover {
+    background-color: #3B82F6;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
 }
 
 .pub-link-box:active {
     transform: scale(0.95);
+    box-shadow: none;
 }
 
-.pub-link-box > * {
-    position: relative;
-    z-index: 1;
-}
-
-.pub-link-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: #3B82F6;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 0;
-}
-
-.pub-link-box:hover {
-    color: #fff;
-    border-color: #3B82F6;
-}
-
-.pub-link-box:hover::before {
-    transform: scaleX(1);
-}
-
-.pub-link-box:hover svg,
-.pub-link-box:hover i {
-    color: #fff;
+.pub-link-box svg,
+.pub-link-box i {
+    transition: color 0.2s ease;
 }
 
 /* Dark mode – blue */
 .dark .pub-link-box {
-    border-color: #93C5FD;
     color: #93C5FD;
-}
-
-.dark .pub-link-box::before {
-    background-color: #93C5FD;
+    background-color: rgba(147, 197, 253, 0.1); /* blue-300 at 10% */
 }
 
 .dark .pub-link-box:hover {
+    background-color: #93C5FD;
     color: #1a202c;
-    border-color: #93C5FD;
+    box-shadow: 0 4px 12px rgba(147, 197, 253, 0.25);
 }
 
 .dark .pub-link-box:hover svg,
@@ -764,31 +741,25 @@ button,
 
 /* ---- Purple variant (GitHub) ---- */
 .pub-link-box-purple {
-    border-color: #7C3AED;
     color: #7C3AED;
-}
-
-.pub-link-box-purple::before {
-    background-color: #7C3AED;
+    background-color: rgba(124, 58, 237, 0.1); /* purple-600 at 10% */
 }
 
 .pub-link-box-purple:hover {
-    color: #fff;
-    border-color: #7C3AED;
+    background-color: #7C3AED;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
 }
 
 .dark .pub-link-box-purple {
-    border-color: #C4B5FD;
     color: #C4B5FD;
-}
-
-.dark .pub-link-box-purple::before {
-    background-color: #C4B5FD;
+    background-color: rgba(196, 181, 253, 0.1); /* purple-300 at 10% */
 }
 
 .dark .pub-link-box-purple:hover {
+    background-color: #C4B5FD;
     color: #1a202c;
-    border-color: #C4B5FD;
+    box-shadow: 0 4px 12px rgba(196, 181, 253, 0.25);
 }
 
 .dark .pub-link-box-purple:hover svg,
@@ -798,26 +769,26 @@ button,
 
 /* ---- Disabled state ---- */
 .pub-link-box.pub-link-disabled {
-    border-color: #9CA3AF;
     color: #9CA3AF;
+    background-color: rgba(156, 163, 175, 0.1); /* gray-400 at 10% */
     cursor: not-allowed;
-}
-
-.pub-link-box.pub-link-disabled::before {
-    display: none;
+    transform: none;
+    box-shadow: none;
 }
 
 .pub-link-box.pub-link-disabled:hover {
     color: #9CA3AF;
+    background-color: rgba(156, 163, 175, 0.1);
 }
 
 .dark .pub-link-box.pub-link-disabled {
-    border-color: #6B7280;
     color: #6B7280;
+    background-color: rgba(107, 114, 128, 0.1); /* gray-500 at 10% */
 }
 
 .dark .pub-link-box.pub-link-disabled:hover {
     color: #6B7280;
+    background-color: rgba(107, 114, 128, 0.1);
 }
 
 /* ========================================
@@ -845,6 +816,21 @@ button,
 
 .dark .copy-citation-btn:hover {
     color: #9CA3AF;
+}
+/* Smooth Tick Animation for copy feedback */
+@keyframes drawTick {
+    0% {
+        stroke-dashoffset: 25;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animate-tick path {
+    stroke-dasharray: 25;
+    stroke-dashoffset: 25;
+    animation: drawTick 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .text-gray-600 a.hover\:text-blue-600:hover {

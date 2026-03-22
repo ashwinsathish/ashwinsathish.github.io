@@ -65,6 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
             const citation = button.getAttribute('data-citation');
             if (!citation) return;
 
+            // The soft modern animated SVG checkmark
+            const successSVG = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" 
+                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" 
+                    stroke-linejoin="round" class="animate-tick text-green-500">
+                    <path d="M4 12l5 5L20 6"/>
+                </svg>
+            `;
+
             try {
                 // Use modern Clipboard API
                 await navigator.clipboard.writeText(citation);
@@ -73,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const originalHTML = button.innerHTML;
 
                 // Provide visual feedback
-                button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                button.innerHTML = successSVG;
 
                 // Reset the button after 2 seconds
                 setTimeout(() => {
@@ -91,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 try {
                     document.execCommand('copy');
                     const originalHTML = button.innerHTML;
-                    button.innerHTML = '<i class="fas fa-check text-green-500"></i>';
+                    button.innerHTML = successSVG;
                     setTimeout(() => {
                         button.innerHTML = originalHTML;
                     }, 2000);
