@@ -695,8 +695,8 @@ button,
     gap: 0.375rem;
     padding: 0.375rem 0.85rem;
     border-radius: 0.5rem;
-    color: #3B82F6;
-    background-color: rgba(59, 130, 246, 0.1); /* blue-500 at 10% */
+    color: #1E40AF; /* blue-800 */
+    background-color: rgba(30, 64, 175, 0.08); /* 8% opacity */
     font-size: 0.8125rem;
     font-weight: 500;
     font-family: 'Raleway', sans-serif;
@@ -706,10 +706,10 @@ button,
 }
 
 .pub-link-box:hover {
-    background-color: #3B82F6;
+    background-color: #1E40AF;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
 }
 
 .pub-link-box:active {
@@ -722,16 +722,16 @@ button,
     transition: color 0.2s ease;
 }
 
-/* Dark mode – blue */
+/* Dark mode – sky blue */
 .dark .pub-link-box {
-    color: #93C5FD;
-    background-color: rgba(147, 197, 253, 0.1); /* blue-300 at 10% */
+    color: #7DD3FC; /* sky-300 */
+    background-color: rgba(125, 211, 252, 0.1); /* sky-300 at 10% */
 }
 
 .dark .pub-link-box:hover {
-    background-color: #93C5FD;
+    background-color: #7DD3FC;
     color: #1a202c;
-    box-shadow: 0 4px 12px rgba(147, 197, 253, 0.25);
+    box-shadow: 0 4px 12px rgba(125, 211, 252, 0.25);
 }
 
 .dark .pub-link-box:hover svg,
@@ -739,31 +739,38 @@ button,
     color: #1a202c;
 }
 
-/* ---- Purple variant (GitHub) ---- */
-.pub-link-box-purple {
-    color: #7C3AED;
-    background-color: rgba(124, 58, 237, 0.1); /* purple-600 at 10% */
+
+
+/* ---- Indigo Prototype (Classy & Minimal) ---- */
+.pub-link-box-indigo {
+    color: #3730A3; /* Indigo 800 */
+    background-color: rgba(55, 48, 163, 0.08); /* slight opacity */
 }
 
-.pub-link-box-purple:hover {
-    background-color: #7C3AED;
+.pub-link-box-indigo:hover {
+    background-color: #3730A3;
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    box-shadow: 0 4px 12px rgba(55, 48, 163, 0.25);
 }
 
-.dark .pub-link-box-purple {
-    color: #C4B5FD;
-    background-color: rgba(196, 181, 253, 0.1); /* purple-300 at 10% */
+.pub-link-box-indigo:hover svg,
+.pub-link-box-indigo:hover i {
+    color: #ffffff;
 }
 
-.dark .pub-link-box-purple:hover {
-    background-color: #C4B5FD;
+.dark .pub-link-box-indigo {
+    color: #A5B4FC; /* Indigo 300 */
+    background-color: rgba(165, 180, 252, 0.1);
+}
+
+.dark .pub-link-box-indigo:hover {
+    background-color: #A5B4FC;
     color: #1a202c;
-    box-shadow: 0 4px 12px rgba(196, 181, 253, 0.25);
+    box-shadow: 0 4px 12px rgba(165, 180, 252, 0.25);
 }
 
-.dark .pub-link-box-purple:hover svg,
-.dark .pub-link-box-purple:hover i {
+.dark .pub-link-box-indigo:hover svg,
+.dark .pub-link-box-indigo:hover i {
     color: #1a202c;
 }
 
