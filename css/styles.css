@@ -114,6 +114,32 @@ button,
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
 
+/* Profile social icons – dark mode hover */
+.dark a.text-gray-600.hover\:text-blue-800:hover {
+    color: #90CDF4 !important; /* blue-300 */
+}
+
+.dark a.text-gray-600.hover\:text-purple-700:hover {
+    color: #C4B5FD !important; /* violet-300 */
+}
+
+.dark a.text-gray-600.hover\:text-blue-400:hover {
+    color: #63B3ED !important; /* blue-400 */
+}
+
+/* Research interest card headers – dark mode hover */
+.dark .group:hover h3.group-hover\:text-purple-500 {
+    color: #D6BCFA !important; /* purple-300 */
+}
+
+.dark .group:hover h3.group-hover\:text-green-500 {
+    color: #68D391 !important; /* green-300 */
+}
+
+.dark .group:hover h3.group-hover\:text-yellow-500 {
+    color: #F59E0B !important; /* yellow-500 – matches icon */
+}
+
 /* Experience Section Dark Mode Styles */
 .dark .group:hover {
     background-color: transparent !important;
@@ -218,6 +244,23 @@ button,
 .dark .group:hover .text-gray-600.group-hover\:text-blue-600,
 .dark .group:hover .text-gray-600.group-hover\:text-yellow-600 {
     transition: color 0.3s ease;
+}
+
+/* Dark mode hover for links inside experience cards (IfN, ivESK, etc.) */
+.dark .group:hover a.group-hover\:text-red-600 {
+    color: #FC8181 !important;
+}
+
+.dark .group:hover a.group-hover\:text-indigo-600 {
+    color: #A3BFFA !important;
+}
+
+.dark .group:hover a.group-hover\:text-cyan-600 {
+    color: #67e8f9 !important;
+}
+
+.dark .group:hover a.group-hover\:text-yellow-500 {
+    color: #FAF089 !important;
 }
 
 /* Default desktop layout remains the same */
@@ -642,20 +685,166 @@ button,
     width: 2rem;
 }
 
-/* Copy citation button */
+/* ========================================
+   Link box button (blue default)
+   ======================================== */
+.pub-link-box {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.85rem;
+    border: 1.5px solid #3B82F6;
+    border-radius: 0.5rem;
+    color: #3B82F6;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none;
+    transition: color 0.35s ease, border-color 0.35s ease, transform 0.1s ease;
+    z-index: 0;
+}
+
+.pub-link-box:active {
+    transform: scale(0.95);
+}
+
+.pub-link-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.pub-link-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #3B82F6;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+}
+
+.pub-link-box:hover {
+    color: #fff;
+    border-color: #3B82F6;
+}
+
+.pub-link-box:hover::before {
+    transform: scaleX(1);
+}
+
+.pub-link-box:hover svg,
+.pub-link-box:hover i {
+    color: #fff;
+}
+
+/* Dark mode – blue */
+.dark .pub-link-box {
+    border-color: #93C5FD;
+    color: #93C5FD;
+}
+
+.dark .pub-link-box::before {
+    background-color: #93C5FD;
+}
+
+.dark .pub-link-box:hover {
+    color: #1a202c;
+    border-color: #93C5FD;
+}
+
+.dark .pub-link-box:hover svg,
+.dark .pub-link-box:hover i {
+    color: #1a202c;
+}
+
+/* ---- Purple variant (GitHub) ---- */
+.pub-link-box-purple {
+    border-color: #7C3AED;
+    color: #7C3AED;
+}
+
+.pub-link-box-purple::before {
+    background-color: #7C3AED;
+}
+
+.pub-link-box-purple:hover {
+    color: #fff;
+    border-color: #7C3AED;
+}
+
+.dark .pub-link-box-purple {
+    border-color: #C4B5FD;
+    color: #C4B5FD;
+}
+
+.dark .pub-link-box-purple::before {
+    background-color: #C4B5FD;
+}
+
+.dark .pub-link-box-purple:hover {
+    color: #1a202c;
+    border-color: #C4B5FD;
+}
+
+.dark .pub-link-box-purple:hover svg,
+.dark .pub-link-box-purple:hover i {
+    color: #1a202c;
+}
+
+/* ---- Disabled state ---- */
+.pub-link-box.pub-link-disabled {
+    border-color: #9CA3AF;
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+
+.pub-link-box.pub-link-disabled::before {
+    display: none;
+}
+
+.pub-link-box.pub-link-disabled:hover {
+    color: #9CA3AF;
+}
+
+.dark .pub-link-box.pub-link-disabled {
+    border-color: #6B7280;
+    color: #6B7280;
+}
+
+.dark .pub-link-box.pub-link-disabled:hover {
+    color: #6B7280;
+}
+
+/* ========================================
+   Copy citation button – unboxed icon
+   ======================================== */
 .copy-citation-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    color: #9CA3AF;
+    transition: color 0.25s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
-@media (max-width: 767px) {
-    .copy-citation-btn {
-        order: 1;
-        margin-left: auto;
-    }
+.copy-citation-btn:hover {
+    color: #6B7280;
+}
+
+.dark .copy-citation-btn {
+    color: #6B7280;
+}
+
+.dark .copy-citation-btn:hover {
+    color: #9CA3AF;
 }
 
 .text-gray-600 a.hover\:text-blue-600:hover {

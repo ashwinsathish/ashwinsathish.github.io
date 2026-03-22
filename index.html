@@ -228,7 +228,7 @@
                 <!-- Digital Twins -->
                 <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
                     <div class="flex flex-wrap items-start gap-4">
-                        <h3 class="text-xl font-semibold text-gray-800 flex-1">Digital Twins</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 flex-1 transition-colors duration-300 group-hover:text-purple-500">Digital Twins</h3>
                         <i
                             class="fas fa-cubes text-2xl text-gray-300 group-hover:text-purple-500 transform group-hover:scale-110 transition-all duration-300"></i>
                     </div>
@@ -239,7 +239,7 @@
                 <!-- Localization -->
                 <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
                     <div class="flex flex-wrap items-start gap-4">
-                        <h3 class="text-xl font-semibold text-gray-800 flex-1">Localization</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 flex-1 transition-colors duration-300 group-hover:text-green-500">Localization</h3>
                         <i
                             class="fas fa-crosshairs text-2xl text-gray-300 group-hover:text-green-500 transform group-hover:scale-110 transition-all duration-300"></i>
                     </div>
@@ -251,7 +251,7 @@
                 <!-- ISAC -->
                 <div class="bg-white rounded-lg shadow-md p-8 group hover:shadow-lg transition-all duration-300">
                     <div class="flex flex-wrap items-start gap-4">
-                        <h3 class="text-xl font-semibold text-gray-800 flex-1">Integrated Sensing & Communications</h3>
+                        <h3 class="text-xl font-semibold text-gray-800 flex-1 transition-colors duration-300 group-hover:text-yellow-500">Integrated Sensing & Communications</h3>
                         <i
                             class="fas fa-satellite-dish text-2xl text-gray-300 group-hover:text-yellow-500 transform group-hover:scale-110 transition-all duration-300"></i>
                     </div>
@@ -602,7 +602,6 @@
                     </div>
                 </div> -->
 
-                <!-- Second Paper -->
                 <div class="bg-white rounded-lg shadow-md p-6">
                     <div class="flex flex-col lg:flex-row lg:items-center gap-4">
                         <div class="flex-grow">
@@ -615,20 +614,31 @@
                             </h3>
                             <p class="text-gray-600 mb-2">IEEE International Conference on Advanced Networks and
                                 Telecommunications Systems (ANTS) | IIT Guwahati, 2024</p>
-                            <p class="text-gray-600">Authors: <span class="font-semibold">A. S. Kumar</span>, S. Joshi
-                            </p>
+                            <div class="flex items-center justify-between">
+                                <p class="text-gray-600">Authors: <span class="font-semibold">A. S. Kumar</span>, S. Joshi</p>
+                                <button type="button"
+                                    class="copy-citation-btn flex-shrink-0 ml-3 lg:hidden"
+                                    data-citation="A. S. Kumar and S. Joshi, &quot;LiDAR-Enabled Spatial Awareness for Beamforming in IRS-Assisted Wireless Communication System,&quot; 2024 IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS), Guwahati, India, 2024, pp. 1-6, doi: 10.1109/ANTS63515.2024.10898544."
+                                    aria-label="Copy citation" title="Copy citation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="flex flex-col items-end justify-center lg:ml-4 lg:min-w-[120px]">
+                        <div class="hidden lg:flex lg:flex-col items-center gap-3 lg:ml-4 flex-shrink-0">
                             <a href="https://doi.org/10.1109/ANTS63515.2024.10898544" target="_blank"
-                                class="hidden lg:inline-flex items-center justify-center text-blue-600 hover:text-blue-800 mb-2">
-                                <span class="mr-2">Paper</span>
-                                <i class="fas fa-external-link-alt"></i>
+                                class="pub-link-box" title="View Paper">
+                                <span>Paper</span>
                             </a>
                             <button type="button"
-                                class="copy-citation-btn text-gray-600 hover:text-blue-600 focus:outline-none"
+                                class="copy-citation-btn"
                                 data-citation="A. S. Kumar and S. Joshi, &quot;LiDAR-Enabled Spatial Awareness for Beamforming in IRS-Assisted Wireless Communication System,&quot; 2024 IEEE International Conference on Advanced Networks and Telecommunications Systems (ANTS), Guwahati, India, 2024, pp. 1-6, doi: 10.1109/ANTS63515.2024.10898544."
-                                aria-label="Copy citation">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                aria-label="Copy citation" title="Copy citation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -652,25 +662,37 @@
                             </h3>
                             <p class="text-gray-600 mb-2">Metamaterials XIV, SPIE Photonics Europe | Strasbourg, 2024
                             </p>
-                            <div class="text-gray-600 flex flex-wrap items-center gap-2">
-                                <span>Authors: <span class="font-semibold">A. Sathish Kumar</span>, D. Mahanta, P.
-                                    Arora</span>
-                                <span
-                                    class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm whitespace-nowrap">Conference
-                                    poster</span>
+                            <div class="flex items-center justify-between">
+                                <div class="text-gray-600 flex flex-wrap items-center gap-2">
+                                    <span>Authors: <span class="font-semibold">A. Sathish Kumar</span>, D. Mahanta, P.
+                                        Arora</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm whitespace-nowrap">Conference
+                                        poster</span>
+                                </div>
+                                <button type="button"
+                                    class="copy-citation-btn flex-shrink-0 ml-3 lg:hidden"
+                                    data-citation="A. Sathish Kumar, D. Mahanta, P. Arora. High-resolution aluminum-based plasmonic devices using metamaterials for cancer cell detection. Proc. SPIE PC12990, Metamaterials XIV, 2024."
+                                    aria-label="Copy citation" title="Copy citation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <div class="flex flex-col items-end justify-center lg:ml-4 lg:min-w-[120px]">
+                        <div class="hidden lg:flex lg:flex-col items-center gap-3 lg:ml-4 flex-shrink-0">
                             <a href="https://doi.org/10.1117/12.3021474" target="_blank" rel="noopener noreferrer"
-                                class="hidden lg:inline-flex items-center justify-center text-blue-600 hover:text-blue-800 mb-2">
-                                <span class="mr-2">Poster</span>
-                                <i class="fas fa-external-link-alt"></i>
+                                class="pub-link-box" title="View Poster">
+                                <span>Poster</span>
                             </a>
                             <button type="button"
-                                class="copy-citation-btn text-gray-600 hover:text-blue-600 focus:outline-none"
+                                class="copy-citation-btn"
                                 data-citation="A. Sathish Kumar, D. Mahanta, P. Arora. High-resolution aluminum-based plasmonic devices using metamaterials for cancer cell detection. Proc. SPIE PC12990, Metamaterials XIV, 2024."
-                                aria-label="Copy citation">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                aria-label="Copy citation" title="Copy citation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -742,12 +764,12 @@
                             </div>
                         </div>
                         <div class="footer-separator">
-                            <div class="flex items-center">
+                            <div class="flex items-center gap-3">
                                 <a href="https://github.com/ashwinsathish/Open5GS-API" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box pub-link-box-purple">
                                     <span>View on GitHub</span>
-                                    <i class="fab fa-github ml-2"></i>
+                                    <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
@@ -804,24 +826,16 @@
                             </div>
                         </div>
                         <div class="footer-separator">
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <a href="https://github.com/ashwinsathish/PhC-SPR-Biosensor" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box pub-link-box-purple">
                                     <span>View on GitHub</span>
-                                    <i class="fab fa-github ml-2"></i>
+                                    <i class="fab fa-github"></i>
                                 </a>
-                                <span class="text-gray-300">|</span>
-                                <a href="#" target="_blank" rel="noopener noreferrer"
-                                    class="inline-flex items-center text-gray-400 cursor-not-allowed" title="In press">
+                                <a href="#"
+                                    class="pub-link-box pub-link-disabled" title="In press">
                                     <span>Poster</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="ml-1">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -848,25 +862,17 @@
                             </div>
                         </div>
                         <div class="footer-separator">
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <a href="https://github.com/ashwinsathish/LiDAR-IRS-Beamforming" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box pub-link-box-purple">
                                     <span>View on GitHub</span>
-                                    <i class="fab fa-github ml-2"></i>
+                                    <i class="fab fa-github"></i>
                                 </a>
-                                <span class="text-gray-300">|</span>
                                 <a href="https://doi.org/10.1109/ANTS63515.2024.10898544" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box">
                                     <span>Paper</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="ml-1">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -893,24 +899,16 @@
                             </div>
                         </div>
                         <div class="footer-separator">
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center gap-3">
                                 <a href="https://github.com/ashwinsathish/Metamaterial-SPR-Biosensor" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box pub-link-box-purple">
                                     <span>View on GitHub</span>
-                                    <i class="fab fa-github ml-2"></i>
+                                    <i class="fab fa-github"></i>
                                 </a>
-                                <span class="text-gray-300">|</span>
                                 <a href="https://doi.org/10.1117/12.3021474" target="_blank" rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box">
                                     <span>Poster</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="ml-1">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                        <polyline points="15 3 21 3 21 9"></polyline>
-                                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                                    </svg>
                                 </a>
                             </div>
                         </div>
@@ -935,12 +933,12 @@
                             </div>
                         </div>
                         <div class="footer-separator">
-                            <div class="flex items-center">
+                            <div class="flex items-center gap-3">
                                 <a href="https://github.com/ashwinsathish/FDTD-analysis" target="_blank"
                                     rel="noopener noreferrer"
-                                    class="inline-flex items-center text-blue-600 hover:text-purple-700">
+                                    class="pub-link-box pub-link-box-purple">
                                     <span>View on GitHub</span>
-                                    <i class="fab fa-github ml-2"></i>
+                                    <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
