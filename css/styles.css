@@ -702,7 +702,7 @@ button,
     font-family: 'Raleway', sans-serif;
     white-space: nowrap;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.4s ease;
 }
 
 .pub-link-box:hover {
@@ -719,7 +719,7 @@ button,
 
 .pub-link-box svg,
 .pub-link-box i {
-    transition: color 0.2s ease;
+    transition: color 0.4s ease;
 }
 
 /* Dark mode – sky blue */
